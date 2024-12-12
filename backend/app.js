@@ -24,4 +24,4 @@ app.listen(port, function () {
 logger.Ready(`Server is Running at port ${port}`);
 });
 
-export default app;
+module.exports = app;
