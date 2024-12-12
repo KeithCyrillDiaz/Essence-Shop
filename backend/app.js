@@ -21,5 +21,7 @@ app.use(cors());
 
 const port = configuration.port;
 app.listen(port, function () {
-logger.Ready(`Server is Running at port ${port}`)
+logger.Ready(`Server is Running at port ${port}`);
 });
+
+export default app;
