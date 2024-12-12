@@ -14,7 +14,7 @@ const app = express()
 
 app.use(express.json());
 
-app.get('/', (req, res) => res.json({message: "Essence Shop Backend"}));
+app.get('/', (req, res) => res.json("Essence Shop Backend"));
 
 app.use(errorHandler);
 app.use(cors());
