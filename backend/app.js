@@ -1,27 +1,39 @@
 const express = require('express');
 const errorHandler = require('./utils/errorHandler');
-require('dotenv').config();
 const cors = require('cors');
 const connectToDatabase = require('./config/connectToDatabase');
 const logger = require('./utils/logger');
 const configuration = require('./config/dotenv');
+const checkEnvVariables = require('./helpers/checkEnvVariables');
+const router = require('./routes/index');
 
+require('dotenv').config();
 require("colors").enable();
 
+//Connect the server to MongoDB Database
 connectToDatabase();
 
-const app = express()
+//Check required environment Variables
+checkEnvVariables();
 
-app.use(express.json());
+const app = express();
+app.use(express.json());// Parse JSON payloads
+app.use(cors());// Enable CORS
 
+// Root route
 app.get('/', (req, res) => res.json("Essence Shop Backend"));
 
+// Use generated routes
+app.use('/EssenceShop', router());
 app.use(errorHandler);
-app.use(cors());
 
+//start the server
 const port = configuration.port;
 app.listen(port, function () {
 logger.Ready(`Server is Running at port ${port}`);
 });
 
+
+
+//exports for vercel configuration since it looks for the API folder
 module.exports = app;

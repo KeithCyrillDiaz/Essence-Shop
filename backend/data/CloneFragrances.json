@@ -1,0 +1,718 @@
+[   
+    {
+        "Brands": [
+            "Al Haramain", "Lattafa", "Ajmal", "Rasasi", "Afnan", "Swiss Arabian", "Cacharel"
+        ]
+    },
+    {
+    "Al Haramain": [
+        {
+            "brand": "Al Haramain",
+            "name": "L'Aventure",
+            "topNotes": ["Lemon", "Bergamot", "Jasmine"],
+            "middleNotes": ["Rose", "Musk", "Patchouli"],
+            "baseNotes": ["Amber", "Sandalwood", "Vanilla"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Fruity"],
+            "dupe": "Creed Aventus"
+        },
+        {
+            "brand": "Al Haramain",
+            "name": "Oud Maknoon",
+            "topNotes": ["Oud", "Rose", "Spices"],
+            "middleNotes": ["Saffron", "Cedarwood", "Jasmine"],
+            "baseNotes": ["Musk", "Amber", "Vanilla"],
+            "longevity": "10 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+            "dupe": "Creed Royal Oud"
+        },
+        {
+            "brand": "Al Haramain",
+            "name": "Amber Oud",
+            "topNotes": ["Saffron", "Amber", "Citrus"],
+            "middleNotes": ["Oud", "Spices", "Rose"],
+            "baseNotes": ["Sandalwood", "Musk", "Vanilla"],
+            "longevity": "12 - 14 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+            "dupe": "Tom Ford Oud Wood"
+        },
+        {
+            "brand": "Al Haramain",
+            "name": "Musk Amber",
+            "topNotes": ["Citrus", "Saffron", "Rosemary"],
+            "middleNotes": ["Amber", "Musk", "Wood"],
+            "baseNotes": ["Sandalwood", "Vanilla", "Patchouli"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Sweet & Gourmand", "Floral"],
+            "dupe": "Tom Ford Neroli Portofino"
+        },
+        {
+            "brand": "Al Haramain",
+            "name": "Amber Oud Gold",
+            "topNotes": ["Saffron", "Rose", "Jasmine"],
+            "middleNotes": ["Oud", "Cedarwood", "Vanilla"],
+            "baseNotes": ["Amber", "Musk", "Sandalwood"],
+            "longevity": "12 - 14 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+            "dupe": "Xerjoff Erba Pura"
+        },
+
+        {
+            "brand": "Al Haramain",
+            "name": "Amber Oud Bleu",
+            "topNotes": ["Lemon", "Grapefruit", "Bergamot"],
+            "middleNotes": ["Rose", "Oud", "Spices"],
+            "baseNotes": ["Musk", "Amber", "Sandalwood"],
+            "longevity": "10 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+            "dupe": "Bleu de Chanel"
+        },
+       
+        {
+            "brand": "Al Haramain",
+            "name": "L'Aventure Knight",
+            "topNotes": ["Bergamot", "Apple", "Citrus"],
+            "middleNotes": ["Rose", "Jasmine", "Cedarwood"],
+            "baseNotes": ["Musk", "Sandalwood", "Vanilla"],
+            "longevity": "10 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Fruity"],
+            "dupe": "Creed Green Irish Tweed"
+        }
+      ]
+    },
+
+    {
+        "Lattafa": [
+          {
+            "brand": "Lattafa",
+            "name": "Raghba",
+            "topNotes": ["Bergamot", "Citrus", "Fruity Notes"],
+            "middleNotes": ["Spices", "Sugar", "Saffron"],
+            "baseNotes": ["Vanilla", "Oud", "Musk"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Sweet & Gourmand", "Woody & Earthy"],
+            "dupe": "Arabian Oud Kalemat"
+          },
+
+          {
+            "brand": "Lataffa Perfumes",
+            "name": "Pride Nebras Eau de Parfum",
+            "topNotes": ["Bergamot", "Apple", "Peach"],
+            "middleNotes": ["Jasmine", "Rose", "Orange Blossom"],
+            "baseNotes": ["Vanilla", "Musk", "Sandalwood"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual", "Office"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"],
+            "dupe": "Billie Eilish No. 1"
+          },
+
+          {
+            "brand": "Lataffa Perfumes",
+            "name": "Fakhar",
+            "topNotes": ["Bergamot", "Apple", "Lemon"],
+            "middleNotes": ["Rose", "Jasmine", "Spices"],
+            "baseNotes": ["Musk", "Amber", "Patchouli"],
+            "longevity": "10 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+            "dupe": "YSL Y"
+          },
+          {
+            "brand": "Lattafa",
+            "name": "Opulent Musk",
+            "topNotes": ["Citrus", "Bergamot", "Musk"],
+            "middleNotes": ["Jasmine", "Rose", "Oud"],
+            "baseNotes": ["Amber", "Vanilla", "Musk"],
+            "longevity": "10 - 12 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Unisex",
+            "scentProfile": ["Fresh & Clean", "Woody & Earthy"],
+            "dupe": "Baccarat Rouge 540"
+          },
+          {
+            "brand": "Lattafa",
+            "name": "Khamrah",
+            "topNotes": ["Citrus", "Apple", "Bergamot"],
+            "middleNotes": ["Rose", "Jasmine", "Spices"],
+            "baseNotes": ["Amber", "Vanilla", "Musk"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Spicy", "Woody", "Amber"],
+            "dupe": "Kilian Angel Share"
+          },
+          {
+            "brand": "Lattafa",
+            "name": "Asad",
+            "topNotes": ["Lemon", "Bergamot", "Lavender"],
+            "middleNotes": ["Saffron", "Cedarwood", "Spices"],
+            "baseNotes": ["Vanilla", "Amber", "Musk"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Fresh & Clean"],
+            "dupe": "Dior Sauvage Elixir"
+          },
+          {
+            "brand": "Lattafa",
+            "name": "Lamsat Al Harir",
+            "topNotes": ["Fruity Notes", "Citrus", "Rose"],
+            "middleNotes": ["Jasmine", "Saffron", "Spices"],
+            "baseNotes": ["Vanilla", "Musk", "Woodsy Notes"],
+            "longevity": "10 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Woody & Earthy"],
+            "dupe": "Armani Sì"
+          }
+        ]
+      },
+
+      {
+        "Ajmal": [
+            {
+              "brand": "Ajmal",
+              "name": "Blu Homme",
+              "topNotes": ["Bergamot", "Lavender", "Watermelon"],
+              "middleNotes": ["Jasmine", "Lotus", "Rose"],
+              "baseNotes": ["Sandalwood", "Musk", "Amber"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Male",
+              "scentProfile": ["Fresh & Clean", "Fruity"],
+              "dupe": "Davidoff Cool Water"
+            },
+            {
+              "brand": "Ajmal",
+              "name": "Evoke Gold for Him",
+              "topNotes": ["Pink Pepper", "Neroli"],
+              "middleNotes": ["Orange Blossom", "Geranium"],
+              "baseNotes": ["Amber", "Musk", "Patchouli"],
+              "longevity": "8 - 10 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Male",
+              "scentProfile": ["Oriental & Spicy", "Woody & Earthy"],
+              "dupe": "Paco Rabanne 1 Million"
+            },
+            {
+              "brand": "Ajmal",
+              "name": "Sacrifice for Her",
+              "topNotes": ["Jasmine", "Water Lily"],
+              "middleNotes": ["Vanilla", "Orange Blossom"],
+              "baseNotes": ["Musk", "Amber"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Floral", "Sweet & Gourmand"],
+              "dupe": "Lancome Hypnose"
+            },
+            {
+              "brand": "Ajmal",
+              "name": "Regina",
+              "topNotes": ["Fruity Notes", "Bergamot"],
+              "middleNotes": ["Rose", "Jasmine"],
+              "baseNotes": ["Amber", "Sandalwood", "Musk"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Formal"],
+              "bestFor": ["Spring", "Autumn"],
+              "gender": "Female",
+              "scentProfile": ["Floral", "Fruity"],
+              "dupe": "Dior J'adore"
+            },
+            {
+              "brand": "Ajmal",
+              "name": "Amber Wood",
+              "topNotes": ["Cardamom", "Apple", "Lavender"],
+              "middleNotes": ["Orris Root", "Cedarwood"],
+              "baseNotes": ["Amber", "Patchouli", "Vanilla"],
+              "longevity": "12 - 14 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Unisex",
+              "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+              "dupe": "Tom Ford Oud Wood"
+            },
+            {
+              "brand": "Ajmal",
+              "name": "Oudesire",
+              "topNotes": ["Rose", "Saffron", "Citrus"],
+              "middleNotes": ["Oud", "Amber", "Geranium"],
+              "baseNotes": ["Musk", "Patchouli", "Vanilla"],
+              "longevity": "10 - 12 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Unisex",
+              "scentProfile": ["Oriental & Spicy", "Woody & Earthy"],
+              "dupe": "Xerjoff Alexandria II"
+            },
+            {
+              "brand": "Ajmal",
+              "name": "Shadow for Her",
+              "topNotes": ["Rosewood", "Lavender", "Green Apple"],
+              "middleNotes": ["Patchouli", "Heliotrope", "Violet"],
+              "baseNotes": ["Musk", "Sandalwood", "Ambergris"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Unisex",
+              "scentProfile": ["Floral", "Fresh & Clean"],
+              "dupe": "Chanel Chance Eau Fraîche"
+            }
+          ]
+      },
+
+      {
+        "Rasasi": [
+            {
+              "brand": "Rasasi",
+              "name": "Hawas for Him",
+              "topNotes": ["Apple", "Cinnamon", "Bergamot", "Lemon"],
+              "middleNotes": ["Orange Blossom", "Cardamom", "Aquatic Notes"],
+              "baseNotes": ["Musk", "Ambergris", "Patchouli", "Driftwood"],
+              "longevity": "8 - 10 hours",
+              "projection": "Strong",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Male",
+              "scentProfile": ["Fruity", "Fresh & Clean"],
+              "dupe": "Invictus by Paco Rabanne"
+            },
+            {
+              "brand": "Rasasi",
+              "name": "La Yuqawam Homme",
+              "topNotes": ["Raspberry", "Saffron", "Thyme"],
+              "middleNotes": ["Olibanum", "Jasmine", "Artemisia"],
+              "baseNotes": ["Leather", "Suede", "Amber", "Woody Notes"],
+              "longevity": "12 - 14 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Male",
+              "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+              "dupe": "Tuscan Leather by Tom Ford"
+            },
+            {
+              "brand": "Rasasi",
+              "name": "Hawas for Her",
+              "topNotes": ["Apple", "Pomegranate", "Grapefruit"],
+              "middleNotes": ["Iris", "Citrus", "Jasmine Sambac"],
+              "baseNotes": ["Vanilla", "Patchouli", "Amber", "Musk"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Fruity", "Sweet & Gourmand"],
+              "dupe": "Lady Million by Paco Rabanne"
+            },
+            {
+              "brand": "Rasasi",
+              "name": "La Yuqawam Femme",
+              "topNotes": ["Bergamot", "Incense", "Lemon"],
+              "middleNotes": ["Jasmine", "Peach", "Cinnamon"],
+              "baseNotes": ["Amber", "Sandalwood", "Musk"],
+              "longevity": "10 - 12 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Female",
+              "scentProfile": ["Oriental & Spicy", "Woody & Earthy"],
+              "dupe": "Shalimar by Guerlain"
+            },
+            {
+              "brand": "Rasasi",
+              "name": "Shuhrah for Men",
+              "topNotes": ["Tomato Leaves", "Fruity Notes", "Bergamot"],
+              "middleNotes": ["Rose", "Sandalwood", "Cedarwood"],
+              "baseNotes": ["Oud", "Amber", "Musk"],
+              "longevity": "10 - 12 hours",
+              "projection": "Strong",
+              "occasion": ["Daytime", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Unisex",
+              "scentProfile": ["Fruity", "Woody & Earthy"],
+              "dupe": "Encre Noire by Lalique"
+            },
+            {
+              "brand": "Rasasi",
+              "name": "Al Wisam Day",
+              "topNotes": ["Bergamot", "Lavender", "Geranium"],
+              "middleNotes": ["Rose", "Clary Sage", "Cedarwood"],
+              "baseNotes": ["Amber", "Sandalwood", "Musk"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Unisex",
+              "scentProfile": ["Fresh & Clean", "Floral"],
+              "dupe": "Silver Mountain Water by Creed"
+            },
+            {
+              "brand": "Rasasi",
+              "name": "Junoon Velvet Pour Femme",
+              "topNotes": ["Orange Blossom", "Lemon", "Iris"],
+              "middleNotes": ["Vanilla", "Orris Root", "Ylang-Ylang"],
+              "baseNotes": ["Musk", "Patchouli", "Sandalwood"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Female",
+              "scentProfile": ["Floral", "Sweet & Gourmand"],
+              "dupe": "Hypnotic Poison by Dior"
+            }
+          ]
+      },
+
+      {
+        "Afnan": [
+            {
+              "brand": "Afnan",
+              "name": "Supremacy Not Only Intense",
+              "topNotes": ["Bergamot", "Apple", "Blackcurrant"],
+              "middleNotes": ["Patchouli", "Lavender", "Oakmoss"],
+              "baseNotes": ["Ambergris", "Saffron", "Musk"],
+              "longevity": "10 - 12 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Male",
+              "scentProfile": ["Woody & Earthy", "Fruity", "Oriental & Spicy"],
+              "dupe": "Aventus by Creed"
+            },
+            {
+              "brand": "Afnan",
+              "name": "Supremacy Silver",
+              "topNotes": ["Blackcurrant", "Bergamot", "Apple", "Pineapple"],
+              "middleNotes": ["Rose", "Birch", "Patchouli", "Jasmine"],
+              "baseNotes": ["Musk", "Oakmoss", "Ambergris", "Vanilla"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Male",
+              "scentProfile": ["Fruity", "Woody & Earthy"],
+              "dupe": "Aventus by Creed"
+            },
+            {
+              "brand": "Afnan",
+              "name": "Modest Pour Femme",
+              "topNotes": ["Red Berries", "Pear", "Pink Pepper"],
+              "middleNotes": ["Raspberry", "Rose", "Violet"],
+              "baseNotes": ["Vanilla", "Amber", "Patchouli"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Fruity", "Sweet & Gourmand"],
+              "dupe": "La Vie Est Belle by Lancôme"
+            },
+            {
+              "brand": "Afnan",
+              "name": "Rare Tiffany",
+              "topNotes": ["Bergamot", "Lemon", "Blackcurrant"],
+              "middleNotes": ["Jasmine", "Rose", "Peony"],
+              "baseNotes": ["Musk", "Amber", "Cedarwood"],
+              "longevity": "7 - 9 hours",
+              "projection": "Moderate",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Female",
+              "scentProfile": ["Floral", "Fresh & Clean"],
+              "dupe": "Delina by Parfums de Marly"
+            },
+            {
+              "brand": "Afnan",
+              "name": "Supremacy In Heaven",
+              "topNotes": ["Grapefruit", "Bergamot", "Orange Blossom"],
+              "middleNotes": ["Vetiver", "Cedarwood", "Ambergris"],
+              "baseNotes": ["Patchouli", "Musk"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Unisex",
+              "scentProfile": ["Fresh & Clean", "Woody & Earthy"],
+              "dupe": "Silver Mountain Water by Creed"
+            },
+            {
+                "brand": "Afnan",
+                "name": "9PM",
+                "topNotes": ["Apple", "Cinnamon", "Wild Lavender", "Bergamot"],
+                "middleNotes": ["Orange Blossom", "Lily-of-the-Valley"],
+                "baseNotes": ["Vanilla", "Tonka Bean", "Amber", "Patchouli"],
+                "longevity": "10 - 12 hours",
+                "projection": "Strong",
+                "occasion": ["Evening", "Casual"],
+                "bestFor": ["Autumn", "Winter"],
+                "gender": "Male",
+                "scentProfile": ["Sweet & Gourmand", "Fruity", "Oriental & Spicy"],
+                "dupe": "Ultra Male by Jean Paul Gaultier"
+            },
+            {
+              "brand": "Afnan",
+              "name": "Supremacy Gold",
+              "topNotes": ["Violet", "Peach", "Cumin"],
+              "middleNotes": ["Iris", "Patchouli", "Jasmine"],
+              "baseNotes": ["Vanilla", "Amber", "Musk"],
+              "longevity": "10 - 12 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Unisex",
+              "scentProfile": ["Sweet & Gourmand", "Oriental & Spicy"],
+              "dupe": "Tobacco Vanille by Tom Ford"
+            }
+          ]
+          
+      },
+
+      {
+        "Swiss Arabian": [
+            {
+              "brand": "Swiss Arabian",
+              "name": "Shaghaf Oud Aswad",
+              "topNotes": ["Saffron", "Rose", "Thyme"],
+              "middleNotes": ["Agarwood (Oud)", "Patchouli", "Caramel"],
+              "baseNotes": ["Amber", "Vanilla", "Musk"],
+              "longevity": "12 - 14 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Unisex",
+              "scentProfile": ["Woody & Earthy", "Sweet & Gourmand"],
+              "dupe": "Initio Oud for Greatness"
+            },
+            {
+              "brand": "Swiss Arabian",
+              "name": "Shaghaf Oud",
+              "topNotes": ["Saffron", "Agarwood (Oud)"],
+              "middleNotes": ["Praline"],
+              "baseNotes": ["Vanilla"],
+              "longevity": "10 - 12 hours",
+              "projection": "Strong",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Autumn", "Winter"],
+              "gender": "Unisex",
+              "scentProfile": ["Oriental & Spicy", "Sweet & Gourmand"],
+              "dupe": "By the Fireplace by Maison Margiela"
+            },
+            {
+              "brand": "Swiss Arabian",
+              "name": "Rakaan",
+              "topNotes": ["Grapefruit", "Orange Blossom"],
+              "middleNotes": ["Rosemary", "Vetiver"],
+              "baseNotes": ["Cedarwood", "Musk"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Male",
+              "scentProfile": ["Fresh & Clean", "Woody & Earthy"],
+              "dupe": "Chanel Allure Homme Sport"
+            },
+            {
+              "brand": "Swiss Arabian",
+              "name": "Hayaam",
+              "topNotes": ["Lemon", "Black Currant"],
+              "middleNotes": ["Jasmine", "Rose"],
+              "baseNotes": ["Musk", "Amber", "Vanilla"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Floral", "Fruity"],
+              "dupe": "Chance Eau Tendre by Chanel"
+            },
+            {
+              "brand": "Swiss Arabian",
+              "name": "Layali",
+              "topNotes": ["Black Currant", "Orange Blossom", "Plum"],
+              "middleNotes": ["Ylang-Ylang", "Jasmine", "Rose"],
+              "baseNotes": ["Amber", "Vanilla", "Musk"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"],
+              "dupe": "La Vie Est Belle by Lancôme"
+            },
+            {
+              "brand": "Swiss Arabian",
+              "name": "Edge Intense",
+              "topNotes": ["Lemon", "Bergamot", "Cardamom"],
+              "middleNotes": ["Lavender", "Muguet", "Rosemary"],
+              "baseNotes": ["Cedarwood", "Musk", "Patchouli"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Male",
+              "scentProfile": ["Fresh & Clean", "Woody & Earthy"],
+              "dupe": "Acqua di Gio Profumo by Giorgio Armani"
+            }
+          ]
+      },
+      {
+        "Cacharel": [
+            {
+              "brand": "Cacharel",
+              "name": "Anais Anais",
+              "topNotes": ["Jasmine", "Lily of the Valley", "Rose"],
+              "middleNotes": ["Iris", "Violet", "Orange Blossom"],
+              "baseNotes": ["Sandalwood", "Cedarwood", "Amber"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Floral"],
+              "dupe": "Chloé Eau de Parfum"
+            },
+            {
+              "brand": "Cacharel",
+              "name": "Yes I Am",
+              "topNotes": ["Raspberry", "Ginger", "Mandarin Orange"],
+              "middleNotes": ["Jasmine", "Orange Blossom", "Gardenia"],
+              "baseNotes": ["Cedarwood", "Amber", "Vanilla"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Evening", "Casual"],
+              "bestFor": ["Fall", "Winter"],
+              "gender": "Female",
+              "scentProfile": ["Sweet & Gourmand"],
+              "dupe": "Viktor & Rolf Flowerbomb"
+            },
+            {
+              "brand": "Cacharel",
+              "name": "Aqua-Chic",
+              "topNotes": ["Lemon", "Mandarin Orange", "Bergamot"],
+              "middleNotes": ["Lotus", "Neroli", "Peony"],
+              "baseNotes": ["Musk", "Cedarwood", "Amber"],
+              "longevity": "4 - 6 hours",
+              "projection": "Light",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Unisex",
+              "scentProfile": ["Fresh & Clean"],
+              "dupe": "Davidoff Cool Water"
+            },
+            {
+              "brand": "Cacharel",
+              "name": "Eden",
+              "topNotes": ["Citrus", "Peach", "Melon"],
+              "middleNotes": ["Jasmine", "Muguet", "Orange Blossom"],
+              "baseNotes": ["Sandalwood", "Vanilla", "Cedarwood"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Evening", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Female",
+              "scentProfile": ["Floral", "Fruity"],
+              "dupe": "Escada Especially Escada"
+            },
+            {
+              "brand": "Cacharel",
+              "name": "Cacharel pour Homme",
+              "topNotes": ["Bergamot", "Lemon", "Citrus"],
+              "middleNotes": ["Jasmine", "Patchouli", "Sandalwood"],
+              "baseNotes": ["Vanilla", "Amber", "Oakmoss"],
+              "longevity": "6 - 8 hours",
+              "projection": "Moderate",
+              "occasion": ["Evening", "Casual"],
+              "bestFor": ["Spring", "Fall"],
+              "gender": "Male",
+              "scentProfile": ["Woody & Earthy"],
+              "dupe": "Paco Rabanne Invictus"
+            },
+            {
+              "brand": "Cacharel",
+              "name": "Cacharel pour Homme 2003",
+              "topNotes": ["Bergamot", "Lavender", "Mint"],
+              "middleNotes": ["Cinnamon", "Cloves", "Violet"],
+              "baseNotes": ["Vanilla", "Tonka Bean", "Musk"],
+              "longevity": "8 - 10 hours",
+              "projection": "Moderate",
+              "occasion": ["Evening", "Formal"],
+              "bestFor": ["Winter", "Fall"],
+              "gender": "Male",
+              "scentProfile": ["Woody & Earthy", "Oriental & Spicy"],
+              "dupe": "Dolce & Gabbana The One for Men"
+            },
+            {
+              "brand": "Cacharel",
+              "name": "Noa",
+              "topNotes": ["Peach", "Plum", "Lemon"],
+              "middleNotes": ["Rose", "Jasmine", "Coffee"],
+              "baseNotes": ["Vanilla", "Musk", "Cedarwood"],
+              "longevity": "6 - 8 hours",
+              "projection": "Light",
+              "occasion": ["Daytime", "Casual"],
+              "bestFor": ["Spring", "Summer"],
+              "gender": "Unisex",
+              "scentProfile": ["Floral", "Sweet & Gourmand"],
+              "dupe": "Nina Ricci L'Air du Temps"
+            }
+          ]
+      }
+  
+]
