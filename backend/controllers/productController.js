@@ -12,7 +12,7 @@ const createProduct = async (req, res, next) => {
 
         const {userId} = req;
         const {
-            amount,
+            price,
             size,
             productName,
             topNotes,
@@ -23,9 +23,10 @@ const createProduct = async (req, res, next) => {
             projection,
             occasion,
             bestFor,
+            quantity
         } = req.body;
 
-        if(!size || !amount || !productName || !topNotes || !middleNotes || !baseNotes || !brand || !longevity || !projection || !occasion || !bestFor) {
+        if(!size || !price || !productName || !topNotes || !middleNotes || !baseNotes || !brand || !longevity || !projection || !occasion || !bestFor || !quantity) {
             return res.status(400).json({
                 code: 'CTP_001',
                 message: "field missing"
@@ -114,7 +115,6 @@ const getProductsById = async (req, res, next) => {
 
         logger.Event("Get Product by id Started");
         const {id} = req.params;
-
         if(!id) {
             return res.status(400).json({
                 code: 'GPID_001',
@@ -122,8 +122,7 @@ const getProductsById = async (req, res, next) => {
             })
         }
 
-        const result = await Product.find({userId: id});
-
+        const result = await Product.find({userId: id}).populate('userId');
         if(result.length === 0) {
             return res.status(404).json({
                  code: 'GPID_002',
@@ -135,7 +134,8 @@ const getProductsById = async (req, res, next) => {
 
         return res.status(200).json({
             code: 'GPID_000',
-            message: "Successfully Retrieved Products"
+            message: "Successfully Retrieved Products",
+            data: result
         })
         
 
@@ -144,8 +144,63 @@ const getProductsById = async (req, res, next) => {
     }
 }
 
+
+const updateProductById = async (req, res, next) => {
+    try {
+        logger.Event("Edit Product Started");
+        const {id} = req.params;
+        const {
+            price,
+            size,
+            productName,
+            topNotes,
+            middleNotes,
+            baseNotes,
+            brand,
+            longevity,
+            projection,
+            occasion,
+            bestFor,
+        } = req.body;
+
+        if(!price || !size || !productName || !topNotes || !middleNotes || !baseNotes || !brand || !longevity || !projection || !occasion || !bestFor) {
+            return res.status(400).json({
+                code: 'EDPT_001',
+                message: "Some Product Fields are invalid"
+            })
+        }
+
+        const updates = req.body;
+        const result = await Product.findByIdAndUpdate(
+            id,
+            updates,
+            {new: true}
+        )
+
+        if(!result) {
+            return res.status(404).json({
+                code: 'EDPT_002',
+                message: "Product Not found. Check Product Id"
+            })
+        }
+
+        logger.Success("Sucessfully Updated the Product");
+
+        return res.status(200).json({
+            code: 'EDPT_000',
+            message: "Sucessfully Updated the Product",
+            data: result
+        })
+
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     createProduct,
     getProduct,
-    getProductsById
+    getProductsById,
+    updateProductById
 }

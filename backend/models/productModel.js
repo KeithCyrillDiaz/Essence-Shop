@@ -3,7 +3,7 @@ const logger = require('../utils/logger');
 
 const productSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  amount: { type: Number, required: true },
+  price: { type: Number, required: true },
   size: { type: String, required: true },
   productName: { type: String, required: true },
   topNotes: [{ type: String }],
@@ -14,6 +14,7 @@ const productSchema = new mongoose.Schema({
   projection: { type: String },
   occasion: [{ type: String }],
   bestFor: [{ type: String }],
+  quantity: {type: Number, required: true},
   rating: { type: Number, default: 0 }
 }, { timestamps: true });
 

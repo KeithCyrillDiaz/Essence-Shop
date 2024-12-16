@@ -6,6 +6,7 @@ const Order = require('./Order');
 const Counter = require('./Counter');
 const Admin = require('./Admin');
 const Product = require('./Product');
+const Reviews = require('./Reviews');
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ module.exports = () => {
     Product(router)
     Sales(router);
     Order(router);
+    Reviews(router);
     Counter(router);
     return router;
 }

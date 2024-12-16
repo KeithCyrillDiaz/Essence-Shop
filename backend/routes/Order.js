@@ -3,9 +3,8 @@ const userAuthentication = require("../middleware/userAuthentication")
 
 
 module.exports = (router) => {
-    router.use('/order', userAuthentication); //apply authentication
-
+    
     //protected routes
-    router.get('/order/get', getOrders);
-    router.post('/order/create', createOrder)
+    router.get('/user/order/get', getOrders);
+    router.post('/user/order/create', createOrder)
 }

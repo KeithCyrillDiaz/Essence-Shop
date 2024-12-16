@@ -14,7 +14,7 @@ const connectToDatabase = async () => {
       if(URI === configuration.MongoDB_URL_Local) {
         logger.Ready("MongoDB is Running at Local Host");
       } else {
-        logger.Ready("MongoDB is Running at Atlas");
+        logger.Ready("MongoDB is Running at ATLAS");
       }
     } catch (error) {
         logger.Error(error);
