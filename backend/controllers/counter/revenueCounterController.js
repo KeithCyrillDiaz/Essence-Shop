@@ -6,26 +6,14 @@ const {
 } = require('../../models/counter/revenueCountModel');
 const logger = require('../../utils/logger');
 
-
-const updateRevenueCount = async (req, res, next) => {
-    try {
-
-        logger.Event("Update Revenue Count Started");
-
-        const {month, year, day, value} = req.body;
-
-        if(!month || !year || !day || !value ||typeof(month) !== 'string') {
-            return res.status(400).json({
-                code: 'URC_001',
-                message: "Invalid Fields"
-            })
-        }
-
-        
-         //get the week
-         const week = getWeekOfMonth(month, day, year);
-        
-        const checkDocument = await MonthlyRevenueCount.findOne({month, year});
+const updateRevenue = async (res, month, year, day, week, value) => {
+  console.log(`month: ${month}, year: ${year}, day: ${day}, week: ${week}, value: ${value}`);
+  if(!month || !year || !day || !week || !value){
+   
+    logger.Error("INvalid Parameters")
+    return 
+  }
+  const checkDocument = await MonthlyRevenueCount.findOne({month, year});
         if(!checkDocument) {
             logger.Event("No matching document found, creating a new entry");
 
@@ -56,11 +44,15 @@ const updateRevenueCount = async (req, res, next) => {
               })
             }
   
-            return res.status(200).json({
-              code: 'URC_000',
-              message: `Created ${month} ${year} revenue counter document`,
-              data: result
-            })
+            // return res.status(200).json({
+            //   code: 'URC_000',
+            //   message: `Created ${month} ${year} revenue counter document`,
+            //   data: result
+            // })
+
+            return {
+              weeklyResult: result
+            }
         }
 
          let dailyResult = await updateDailyRevenueCount(
@@ -100,6 +92,32 @@ const updateRevenueCount = async (req, res, next) => {
               },
             );
           }
+
+          return {
+            weeklyResult,
+          }
+
+}
+
+
+const updateRevenueCount = async (req, res, next) => {
+    try {
+
+        logger.Event("Update Revenue Count Started");
+
+        const {month, year, day, value} = req.body;
+
+        if(!month || !year || !day || !value ||typeof(month) !== 'string') {
+            return res.status(400).json({
+                code: 'URC_001',
+                message: "Invalid Fields"
+            })
+        }
+
+        
+         //get the week
+        const week = getWeekOfMonth(month, day, year);
+        const {weeklyResult} = await updateRevenue(res, month, year, week, day, value);        
 
           logger.Success("Daily revenue count updated successfully.");
 
@@ -159,4 +177,5 @@ const getRevenueCount = async (req, res, next) => {
 module.exports = {
     updateRevenueCount,
     getRevenueCount,
+    updateRevenueHelper: updateRevenue,
 }

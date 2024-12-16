@@ -1,4 +1,4 @@
-const { getWeekOfMonth } = require('../../helpers/date');
+const { getWeekOfMonth, monthToString } = require('../../helpers/date');
 const {
   MonthlyUserCount,
   updateDailyUserCount,

@@ -16,8 +16,12 @@ const monthToInt = {
 }
 
 
-function getWeekOfMonth(monthString, day, year) {
+const monthToString = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+  ]
+  
 
+const getWeekOfMonth = (monthString, day, year) => {
     //validate to prevent error
     if(typeof(monthString) !== 'string' || typeof(day) !== 'number' || typeof(year) !== 'number'){
         logger.Error("Parameters Must Be Numbers");
@@ -52,10 +56,6 @@ function getWeekOfMonth(monthString, day, year) {
         const start = currentWeekStartDate.getDate();
         const end = weekEndDate.getDate() 
 
-        console.log(`Start: ${start}`);
-        console.log(`End: ${end}`);
-
-
         if(day >= start && day <= end) {
             //cut the function if the conditions met and return the index + 1 since index starts at 0
             return index + 1;
@@ -68,6 +68,26 @@ function getWeekOfMonth(monthString, day, year) {
     }
 }
 
+
+const getCurrentDate = () => {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const monthString = monthToString[month];
+    const week = getWeekOfMonth(monthString, day, year);
+    return {
+        month: month + 1,
+        day,
+        year,
+        week
+    }
+}
+
+
 module.exports = {
-    getWeekOfMonth
+    getWeekOfMonth,
+    getCurrentDate,
+    monthToInt,
+    monthToString
 }

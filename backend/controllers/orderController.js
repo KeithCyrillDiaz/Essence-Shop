@@ -1,6 +1,9 @@
+const { getCurrentDate, monthToString } = require('../helpers/date');
 const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
+const Sales = require('../models/salesModel');
 const logger = require('../utils/logger');
+const { updateRevenueHelper } = require('./counter/revenueCounterController');
 
 
 const getOrders = async (req, res, next) => {
@@ -56,14 +59,15 @@ const createOrder = async (req, res, next) => {
         }
 
         const {userId} = req;
-
+        const {month, day, year, week} = getCurrentDate();
+        
+        //convert to real month e.g January
+        const stringMonth = monthToString[month -1];
 
         //checking if products is existing in database
-        const productExistenceChecks = [];
+        const products = [];
         for (const order of orders) {
-            console.log(`order: ${JSON.stringify(order, null, 2)}`);
             const { productId, status, quantity, price } = order;
-            console.log("", order.productId)
             if (!productId || !status || !quantity || !price ) {
                 return res.status(400).json({
                     code: 'CRD_002',
@@ -81,12 +85,13 @@ const createOrder = async (req, res, next) => {
             order.userId = userId;
         
             // adding the existence check promise to the array with no waiting then await later
-            const existenceCheckPromise = Product.exists({ _id: productId });
-            productExistenceChecks.push(existenceCheckPromise);
+            const existenceCheckPromise = Product.find({ _id: productId })
+            .populate('userId');
+            products.push(existenceCheckPromise);
         }
         
         // Wait for all the checks to complete in parallel
-        const existenceResults = await Promise.all(productExistenceChecks);
+        const existenceResults = await Promise.all(products);
 
         // Check each result after all promises have resolved
         for (let i = 0; i < orders.length; i++) {
@@ -113,8 +118,17 @@ const createOrder = async (req, res, next) => {
             };
           });
 
+          const formatOrders = orders.map((order) => {
+            return {
+                ...order,
+                month: stringMonth,
+                day,
+                year
+            }
+          })
+
        
-        const orderResult = await Order.insertMany(orders);
+        const orderResult = await Order.insertMany(formatOrders);
 
         if(!orderResult) {
             return res.status(500).json({
@@ -132,14 +146,72 @@ const createOrder = async (req, res, next) => {
           });
       }
 
-        logger.Success(`Successfully created orders and updated quantities for products.`);
+
+      //prepare querry for creating sales
+      const extractedData = existenceResults.flatMap(productGroup => 
+        productGroup.map(product => {
+            const {id, userId, quantity, price} = product;
+            return {
+                productId: id, 
+                userId: userId.id,  //userId is populated
+                quantity: quantity,
+                price: price,
+              }
+        })
+      );
+
+      //format the data to match the model of sales
+      const formattedData = extractedData.map((item) => {
+        const {userId, productId, quantity, price} = item
+        return {
+            userId,
+            productId,
+            quantity,
+            status: "Completed",
+            price,
+            month: monthToString,
+            day,
+            year
+          }
+      })
+
+      const salesResult = await Sales.insertMany(formattedData);
+
+      if(!salesResult) {
+        return res.status(500).json({
+            code: 'CRD_006',
+            message: "Failed To create Sales"
+        })
+      }
+      
+      
+      console.log('data: ', orders);
+      
+      const totalRevenue = orders.reduce((acc, order) => {
+        const { quantity, price } = order;
+        const revenue = quantity * price * 0.1; // 10% of the total price
+        return acc + revenue; // Accumulate the total revenue
+    }, 0); 
+
+    const {weeklyResult} = await updateRevenueHelper(res, month, year, day, week, totalRevenue);     
+      
+      if(!weeklyResult) {
+        return res.status(500).json({
+            code: 'CRD_007',
+            message: "Failed to Update Weekly Revenue Count"
+        })
+      }
+
+        logger.Success(`Successfully created orders and sales and updated quantities for products.`);
 
         return res.status(201).json({
             code: 'CRD_000',
-            message: "Successfully created orders and updated quantities for products.",
+            message: "Successfully created orders and sales and  updated quantities for products.",
             data: {
                 products: result,
-                orders: orderResult
+                orders: orderResult,
+                sales: salesResult,
+                revenue: weeklyResult
             }
         })
 
