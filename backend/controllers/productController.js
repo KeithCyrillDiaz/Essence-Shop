@@ -1,4 +1,5 @@
 
+const { countDocuments } = require('../models/orderModel');
 const Product = require('../models/productModel');
 const User = require('../models/userModel');
 
@@ -64,6 +65,27 @@ const createProduct = async (req, res, next) => {
         return res.status(500).json({
             code: 'CTP_004',
              message: "Failed to update user's multiRole field"
+        })
+       }
+
+       const productCount = await Product.countDocuments({userId});
+
+       const value = productCount + 1;
+
+       const userResult = await User.findByIdAndUpdate(
+            userId,
+            {
+                $inc: {
+                    productCount: value
+                }
+            },
+            {new: true}
+       )
+
+       if(!userResult) {
+        return res.status.json({
+            code: "CTP_005",
+            message: "Failed to Update Product Count on user"
         })
        }
 
@@ -198,9 +220,65 @@ const updateProductById = async (req, res, next) => {
     }
 }
 
+const deleteProductById = async (req, res, next) => {
+    try {
+
+        logger.Event("Deleted Product By Id Started");
+        
+        const {id} = req.params;
+        const {userId} = req;
+
+        if(!id) {
+            return res.status(400).json({
+                code: 'DPID_001',
+                message: "Invalid Id"
+            })
+        }
+
+        const checkProduct = await Product.findById(id);
+
+        if(!checkProduct) {
+            return res.status(404).json({
+                code: 'DPID_002',
+                message: "Product Not Found"
+            })
+        }
+
+        const ownerId = checkProduct.userId;
+
+        if(!ownerId !== userId) {
+            return res.status(401).json({
+                code: 'DPID_003',
+                message: "User is not the owner of the product"
+            })
+        }
+      
+        const result = await Product.findByIdAndDelete(id);
+        if(!result) {
+            return res.status(500).json({
+                code: 'DPID_003',
+                message: "Something Went Wrong PLease Try Again"
+            })
+        }
+
+
+        logger.Success("Successfull Delete the Product");
+
+        return res.status(200).json({
+            code: "DPID_000",
+            message: "Successfull Delete the Product",
+            data: result
+        })
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     createProduct,
     getProduct,
     getProductsById,
-    updateProductById
+    updateProductById,
+    deleteProductById
 }

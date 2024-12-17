@@ -1,4 +1,4 @@
-const { createProduct, getProduct, getProductsById, updateProductById } = require("../controllers/productController");
+const { createProduct, getProduct, getProductsById, updateProductById, deleteProductById } = require("../controllers/productController");
 
 module.exports = (router) => {
     
@@ -10,6 +10,6 @@ module.exports = (router) => {
 
     router.patch('/user/products/update/:id', updateProductById);
 
-    
+    router.delete('/user/products/delete/:id', deleteProductById);
 
 }

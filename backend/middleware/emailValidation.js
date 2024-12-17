@@ -25,7 +25,7 @@ const emailValidation = async (req, res, next) => {
                 message: "Email already in use"
             })
         }
-
+        logger.Success("Email is valid");
         next();
     
     } catch (error) {

@@ -49,7 +49,7 @@ const register = async (req, res, next) => {
         }
 
         // Check if the email already exists in the database
-        const existingUser = await User.findOne({ email });
+        const existingUser = await User.findOne({ email: email });
         if (existingUser) {
             return res.status(400).json(ERROR_MESSAGES.EMAIL_ALREADY_EXISTS);
         }
@@ -80,7 +80,8 @@ const register = async (req, res, next) => {
         logger.Success(`User Registration successful ${result}`);
         return res.status(201).json({ 
             code: 'REG_000',
-            message: "User registered successfully"
+            message: "User registered successfully",
+            data: result
          });
 
     } catch (error) {

@@ -1,4 +1,5 @@
-const { getCurrentDate, monthToString } = require('../helpers/date');
+const mongoose  = require('mongoose');
+const { getCurrentDate, monthToString, getWeekOfMonth, monthToInt } = require('../helpers/date');
 const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
 const Sales = require('../models/salesModel');
@@ -23,11 +24,22 @@ const getOrders = async (req, res, next) => {
             })
         }
 
+        console.log("orders", orders);
+
         const completeOrders = orders.filter(order => order.status === "Completed");
-        const refundOrders = orders.filter(order => order.status === "Refund");
+        const refundOrders = orders.filter(order => order.status === "Refunded");
         const cancelledOrders = orders.filter(order => order.status === "Cancelled");
+        const pendingOrders = orders.filter(order => order.status === "Pending");
 
         logger.Success("Successfully Fetch Orders");
+
+        if(completeOrders.length === 0 && refundOrders.length === 0 && cancelledOrders.length === 0 && pendingOrders.length === 0) {
+            return res.status(404).json({
+                code: 'GTO_002',
+                message: "Orders not found for this user"
+            })
+        }
+
 
         return res.status(200).json({
             code: "GTO_000",
@@ -35,7 +47,8 @@ const getOrders = async (req, res, next) => {
             data: {
                 complete: completeOrders,
                 refund: refundOrders,
-                cancelled: cancelledOrders
+                cancelled: cancelledOrders,
+                pending: pendingOrders
             }
         })
 
@@ -45,12 +58,16 @@ const getOrders = async (req, res, next) => {
 }
 
 const createOrder = async (req, res, next) => {
+    
+    const triggerSession = false // set to true if deploy #uncoment
+    const session = triggerSession ? await mongoose.startSession() : null;  // Start a session for the transaction
+
     try {
+        if(triggerSession)session.startTransaction();  // Begin the transaction
 
         logger.Event("Create Order Started");
         const orders = req.body;
     
-
         if (!Array.isArray(orders) || orders.length === 0) {
             return res.status(400).json({
                 code: 'CRD_001',
@@ -58,42 +75,41 @@ const createOrder = async (req, res, next) => {
             });
         }
 
-        const {userId} = req;
-        const {month, day, year, week} = getCurrentDate();
+        const {userId: buyerId} = req;
+        const {month, day, year} = getCurrentDate();
         
-        //convert to real month e.g January
-        const stringMonth = monthToString[month -1];
+        const stringMonth = monthToString[month - 1];
 
-        //checking if products is existing in database
+        const receiptId = new mongoose.Types.ObjectId();
+        
         const products = [];
         for (const order of orders) {
-            const { productId, status, quantity, price } = order;
-            if (!productId || !status || !quantity || !price ) {
+            const { productId, status, quantity, price} = order;
+            if (!productId || !status || !quantity || !price) {
                 return res.status(400).json({
                     code: 'CRD_002',
                     message: 'Invalid fields for orders'
                 });
             }
-        
-            if (order.status !== 'Completed') {
+
+            if (order.status !== 'Pending') {
                 return res.status(400).json({
                     code: 'CRD_003',
                     message: "Invalid order status",
                 });
             }
-        
-            order.userId = userId;
-        
-            // adding the existence check promise to the array with no waiting then await later
-            const existenceCheckPromise = Product.find({ _id: productId })
-            .populate('userId');
+
+            //concatenate Id's
+            order.userId = buyerId;
+            order.receiptId = receiptId;
+
+            const existenceCheckPromise = Product.find({ _id: productId }).populate('userId');
             products.push(existenceCheckPromise);
         }
-        
+
         // Wait for all the checks to complete in parallel
         const existenceResults = await Promise.all(products);
 
-        // Check each result after all promises have resolved
         for (let i = 0; i < orders.length; i++) {
             const result = existenceResults[i];
             if (!result) {
@@ -105,118 +121,219 @@ const createOrder = async (req, res, next) => {
             }
         }
 
-        //set up the querry for bulkWrite method of MongoDB to update the quantity
         const updateOperations = orders.map((order) => {
             const { productId, quantity } = order;
-      
-            // Prepare the update object to reduce the quantity
             return {
               updateOne: {
-                filter: { _id: productId }, // Find product by productId
-                update: { $inc: { quantity: -quantity } }, // Decrease quantity by amount
+                filter: { _id: productId },
+                update: { $inc: { quantity: -quantity } },
               }
             };
-          });
+        });
 
-          const formatOrders = orders.map((order) => {
+        const formatOrders = orders.map((order) => {
             return {
                 ...order,
                 month: stringMonth,
                 day,
                 year
             }
-          })
+        });
 
-       
-        const orderResult = await Order.insertMany(formatOrders);
-
+        // Insert orders
+        const orderResult = await Order.insertMany(formatOrders, triggerSession ?{ session } : {});
         if(!orderResult) {
+            if(triggerSession)await session.abortTransaction();  // Abort the transaction if inserting orders fails
             return res.status(500).json({
                 code: 'CRD_002',
                 message: "Internal Server Error"
-            })
+            });
         }
 
-        const result = await Product.bulkWrite(updateOperations);
-
+        // Bulk write to update product quantities
+        const result = await Product.bulkWrite(updateOperations, triggerSession ?{ session } : {});
         if (!result || !result.modifiedCount) {
-          return res.status(500).json({
-              code: 'CRD_005',
-              message: "Failed to update product quantities. No documents were modified."
-          });
-      }
+            if(triggerSession)await session.abortTransaction();  // Abort if no products were modified
+            return res.status(500).json({
+                code: 'CRD_005',
+                message: "Failed to update product quantities. No documents were modified."
+            });
+        }
 
+        // Prepare data for Sales
+        const extractedData = existenceResults.flatMap(productGroup => 
+            productGroup.map(product => {
+                const { id, userId, quantity, price } = product;
+                return {
+                    productId: id, 
+                    userId: userId.id,
+                    quantity: quantity,
+                    price: price,
+                }
+            })
+        );
 
-      //prepare querry for creating sales
-      const extractedData = existenceResults.flatMap(productGroup => 
-        productGroup.map(product => {
-            const {id, userId, quantity, price} = product;
+        const formattedData = extractedData.map((item) => {
+            const { userId, productId, quantity, price } = item;
+            const matchingOrder = orderResult.find((order) => 
+                order.productId.equals(productId)
+            );
+            const orderId = matchingOrder ? matchingOrder._id : null;
+
             return {
-                productId: id, 
-                userId: userId.id,  //userId is populated
-                quantity: quantity,
-                price: price,
-              }
-        })
-      );
+                receiptId,// id for locating the sales when orders are cancelled
+                sellerId: userId,
+                productId,
+                orderId: orderId,
+                quantity,
+                status: "Pending",
+                price,
+                month: stringMonth,
+                day,
+                year
+            }
+        });
 
-      //format the data to match the model of sales
-      const formattedData = extractedData.map((item) => {
-        const {userId, productId, quantity, price} = item
-        return {
-            userId,
-            productId,
-            quantity,
-            status: "Completed",
-            price,
-            month: monthToString,
-            day,
-            year
-          }
-      })
+        // Insert Sales
+        const salesResult = await Sales.insertMany(formattedData, triggerSession ?{ session } : {});
+        if(!salesResult) {
+            if(triggerSession)await session.abortTransaction();  // Abort if creating sales fails
+            return res.status(500).json({
+                code: 'CRD_006',
+                message: "Failed To create Sales"
+            });
+        }
 
-      const salesResult = await Sales.insertMany(formattedData);
+        // Calculate revenue and update weekly revenue
+        // const totalRevenue = orders.reduce((acc, order) => {
+        //     const { quantity, price } = order;
+        //     const revenue = quantity * price * 0.1; // 10% of the total price
+        //     return acc + revenue;
+        // }, 0);
 
-      if(!salesResult) {
-        return res.status(500).json({
-            code: 'CRD_006',
-            message: "Failed To create Sales"
-        })
-      }
-      
-      
-      console.log('data: ', orders);
-      
-      const totalRevenue = orders.reduce((acc, order) => {
-        const { quantity, price } = order;
-        const revenue = quantity * price * 0.1; // 10% of the total price
-        return acc + revenue; // Accumulate the total revenue
-    }, 0); 
+        // const { weeklyResult } = await updateRevenueHelper(res, month, year, day, week, totalRevenue);
+        // if(!weeklyResult) {
+        //     if(triggerSession) await session.abortTransaction();  // Abort if updating weekly revenue fails
+        //     return res.status(500).json({
+        //         code: 'CRD_007',
+        //         message: "Failed to Update Weekly Revenue Count"
+        //     });
+        // }
 
-    const {weeklyResult} = await updateRevenueHelper(res, month, year, day, week, totalRevenue);     
-      
-      if(!weeklyResult) {
-        return res.status(500).json({
-            code: 'CRD_007',
-            message: "Failed to Update Weekly Revenue Count"
-        })
-      }
+        // Commit transaction
+        if(triggerSession) await session.commitTransaction();
 
         logger.Success(`Successfully created orders and sales and updated quantities for products.`);
 
         return res.status(201).json({
             code: 'CRD_000',
-            message: "Successfully created orders and sales and  updated quantities for products.",
+            message: "Successfully created orders and sales and updated quantities for products.",
             data: {
                 products: result,
                 orders: orderResult,
                 sales: salesResult,
-                revenue: weeklyResult
+            }
+        });
+
+    } catch (error) {
+        // Abort the transaction if an error occurs
+        // if (session.inTransaction() && triggerSession) {
+        //     await session.abortTransaction();
+        // }
+        next(error);
+    } finally {
+        // End the session regardless of success or failure
+        if(triggerSession) session.endSession();
+    }
+}
+
+
+const updateOrderStatus = async (req, res, next) => {
+
+     // const session =   await mongoose.startSession(); uncomment this if deploy
+
+    try {
+        logger.Event("Update Order Status Started");
+
+        const {status, receiptId} = req.body;
+        const {id: productId} = req.params;
+        const {userId} = req;
+
+        if(!status || !receiptId || !productId) {
+            return res.status(400).json({
+                code: 'UOS_001',
+                message: "Invalid Fields for updating Order Status"
+            })
+        }
+
+        const statusValue = ['Return',  'Cancelled'];
+
+        if(!statusValue.includes(status)) {
+            return res.status(400).json({
+                code: 'UOS_002',
+                message: "Invalid Status Value"
+            })
+        }
+
+        // session.startTransaction(); uncomment this if deploy
+
+        const orderResult = await Order.findOneAndUpdate(
+            {receiptId, productId, userId},
+            {status},
+            {new: true}
+            // {new: true, session} uncomment this if deploy
+        )
+
+        if (!orderResult) {
+            // await session.abortTransaction(); // Abort the transaction uncomment this if deploy
+            return res.status(404).json({
+                code: 'UOS_003',
+                message: "Order Not Found"
+            });
+        }
+
+        const salesResult = await Sales.findOneAndUpdate(
+            {receiptId, productId},
+            {status},
+            {new: true}
+            // {new: true, session} uncomment this if deploy
+        )
+
+        if (!salesResult) {
+              // If either update fails, abort transaction / updates
+            // await session.abortTransaction(); uncomment this if deploy
+            return res.status(404).json({
+                code: 'UOS_004',
+                message: "Sales Not Found"
+            })
+        }
+
+        //prepare the date for revenueCount
+
+         // Commit transaction if both updates are successful
+        // await session.commitTransaction(); uncomment this if deploy 
+
+
+        logger.Success("Successfully Updated the Order and Sales  Status")
+
+        return res.status(200).json({
+            code: 'UOS_000',
+            message: "Successfully Updated the Order and Sales Status",
+            data: {
+                sales: salesResult,
+                order: orderResult
             }
         })
 
     } catch (error) {
-        next(error);
+        // Abort the transaction if an error occurs
+     //    if (session.inTransaction()) { uncomment this if deploy
+     //     await session.abortTransaction();
+     // }
+        next(error)
+    } finally {
+        // End the session regardless of success or failure
+        // session.endSession(); uncomment this if deploy
     }
 }
 
@@ -224,4 +341,5 @@ const createOrder = async (req, res, next) => {
 module.exports = {
     getOrders,
     createOrder,
+    updateOrderStatus
 }

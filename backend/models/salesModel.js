@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
 const salesSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  sellerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+  orderId: {type: mongoose.Schema.Types.ObjectId, ref: 'Order', required: true },
+  receiptId: {type: mongoose.Schema.Types.ObjectId, required: true },
   status: { type: String, required: true },
   quantity: { type: Number, required: true },
   price: { type: Number, required: true },
@@ -12,12 +14,13 @@ const salesSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // Create indexes on userId and productId to optimize population
-salesSchema.index({ userId: 1 });
+salesSchema.index({  sellerId: 1 });
 salesSchema.index({ productId: 1 });
 
 // Compound index for fetching product of a specified
-salesSchema.index({ userId: 1, status: 1 });
-salesSchema.index({ userId: 1, productId: 1 });
+salesSchema.index({  sellerId: 1, status: 1 });
+salesSchema.index({  sellerId: 1, productId: 1 });
+salesSchema.index({ _id: 1, sellerId: 1 });
 
 
 const Sales = mongoose.model('Sales', salesSchema);

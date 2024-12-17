@@ -1,6 +1,7 @@
 
 const Product = require('../models/productModel');
 const Review = require('../models/reviewsmodel');
+const User = require('../models/userModel');
 const logger = require('../utils/logger');
 
 
@@ -53,7 +54,7 @@ const createReview = async (req, res, next) => {
 
         const {userId} = req;
 
-        if(!productId || !content || !rating) {
+        if(!productId || !content || !rating || typeof(rating) !== 'number') {
             return res.status(400).json({
                 code: 'CTR_001',
                 message: "Invalid Fields for Reviews"
@@ -85,12 +86,55 @@ const createReview = async (req, res, next) => {
             })
         }
 
+
+        const ownerId = checkProduct.userId;
+
+        const userResult = await User.findByIdAndUpdate(
+            ownerId,
+            {
+                $inc: {
+                    rating: rating,
+                    totalRating: 1
+                }
+            },
+            {new: true}
+        )
+
+        if(!userResult) {
+            return res.status(404).json({
+                code: 'CTR_004',
+                message: "User Not Found"
+            })
+        }
+
+        const productResult = await Product.findByIdAndUpdate(
+            productId,
+            {
+                $inc: {
+                    rating: rating,
+                    totalRating: 1
+                }
+            },
+            {new: true}
+        )
+
+        if(!productResult) {
+            return res.status(404).json({
+                code: 'CTR_004',
+                message: "User Not Found"
+            })
+        }
+
         logger.Success("Successfully Created Product");
 
         return res.status(201).json({
             code: 'CTR_000',
             message: "Successfully Created Product",
-            data: result
+            data: {
+                review: result,
+                product: productResult,
+                owner: userResult
+            }
         })
 
     } catch (error) {

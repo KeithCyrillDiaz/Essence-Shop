@@ -3,7 +3,6 @@ const logger = require('../utils/logger');
 const configuration = require('./dotenv')
 const mongoose = require('mongoose');
 
-
 const connectToDatabase = async () => {
     const URI = configuration.MongoDB_URL_Atlas;
     try {

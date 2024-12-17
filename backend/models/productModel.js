@@ -14,12 +14,17 @@ const productSchema = new mongoose.Schema({
   projection: { type: String },
   occasion: [{ type: String }],
   bestFor: [{ type: String }],
+  dupe: {type: String},
+  inspired: {type: String},
+  gender: {type: String},
+  scentProfile: [{type: String}],
   quantity: {type: Number, required: true},
-  rating: { type: Number, default: 0 }
+  rating: { type: Number, default: 0 },
+  totalRating: { type: Number, default: 0 },
 }, { timestamps: true });
 
 productSchema.index({userId: 1});
-
+productSchema.index({quantity: 1});
 
 const Product = mongoose.model('Product', productSchema);
 

@@ -1,5 +1,8 @@
 const { MonthlyRevenueCount } = require('../../models/counter/revenueCountModel');
 const { MonthlyUserCount } = require('../../models/counter/userCountModel');
+const Order = require('../../models/orderModel');
+const Product = require('../../models/productModel');
+const User = require('../../models/userModel');
 const logger = require('../../utils/logger');
 
 
@@ -24,16 +27,26 @@ const getTotal = async (req, res, next) => {
             }}
         ])
 
-        if(totalUser.length === 0 || totalRevenue.length === 0) {
-            return res.status(404).json({
-                code: 'GTL_001',
-                message: "Some total data is not found"
-            })
-        }
+        const totalProducts = await Product.countDocuments(
+            {quantity: {$gte: 1}}
+        );
+        const totalOrders = await Order.countDocuments(
+            {status: 'Completed'}
+        );
+        const totalSellers = await User.countDocuments(
+            {multiRole: true}
+        );
 
         return res.status(200).json({
-            totalUser: totalUser[0].total,
-            totalRevenue: totalRevenue[0].total
+            code: 'GTL_000',
+            message: "Successfully Retrieve totals",
+            data: {
+                user: totalUser[0]?.total ?? 0,
+                revenue: totalRevenue[0]?.total ?? 0,
+                product: totalProducts ?? 0,
+                order: totalOrders ?? 0,
+                seller: totalSellers ?? 0
+            }
         })
        
     } catch (error) {

@@ -1,9 +1,11 @@
-const { getSales } = require("../controllers/salesController");
-const userAuthentication = require("../middleware/userAuthentication");
+const { getSales, updateSalesStatus } = require("../controllers/salesController");
 
 module.exports = (router) => {
-    router.use('/sales', userAuthentication); //apply authentication
 
     //protected routes
-    router.get('/sales/get', getSales);
+    router.get('/user/sales/get', getSales);
+    
+    //update
+    router.patch('/user/sales/updateStatus/:id', updateSalesStatus)
+
 }
