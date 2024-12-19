@@ -26,6 +26,10 @@
     gap: 12px
 }
 
+.register .form h2 {
+    text-align: center;
+}
+
 .register .row {
     display: flex;
     justify-content: space-between;
