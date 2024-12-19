@@ -10,11 +10,6 @@
     justify-content: center;
 }
 
-.registerContainer { 
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
 
 .register .form {
     background-color: #fff;

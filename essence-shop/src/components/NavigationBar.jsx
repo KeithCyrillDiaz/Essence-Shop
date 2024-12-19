@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import assignTypes from '../constant/PropTypes';
 import { SearchIcon, ShoppingCartIcon } from './icons';
@@ -75,9 +74,9 @@ NavigationBarPopUp.propTypes = {
 }
 
 
-const NavigationBar = ({MainButton, currentPage}) => {
+const NavigationBar = () => {
 
-    const {title, path} = MainButton;
+    const isUserLogIn = localStorage.getItem('token');
 
     const tabButtons = [
         { title: "Home", path: "#home"},
@@ -102,7 +101,6 @@ const NavigationBar = ({MainButton, currentPage}) => {
               <TabButton 
                   key={index}
                   title={title}
-                  currentPage={currentPage}
                   path={path}
                   onClick={() => navigation(path)}
               />
@@ -110,34 +108,26 @@ const NavigationBar = ({MainButton, currentPage}) => {
         })}
         </div>
         <ShoppingCartIcon onClick ={() => navigation('/Cart')}/>
+       <div className="mainbuttonContainer">
         <NavigationBarMainButton 
-        title = {title} 
-        onClick={() => {
-          if(title.toLowerCase() === "sign in") {
-            navigation(path); // navigate to sign in
-            return
-          }
-          if(title === "Profile"){
-            setShowPopUp(true)
-          }
-        }}
-        />
-        <NavigationBarPopUp 
-        visible={showPopUp}
-        onClickProfile={() => navigation('/profile')}
-        onClickSellNow={() => navigation('/sellNow')}
-        />
+          title = {isUserLogIn ? "PROFILE" : "SIGN IN"} 
+          onClick={() => {
+            if(!isUserLogIn) {
+              navigation('/register'); // navigate to sign in
+              return
+            }
+            setShowPopUp(!showPopUp)
+          }}
+          />
+          <NavigationBarPopUp 
+          visible={showPopUp}
+          onClickProfile={() => navigation('/profile')}
+          onClickSellNow={() => navigation('/sellNow')}
+          />
+       </div>
 
     </div>
   )
-}
-
-NavigationBar.propTypes = {
-    MainButton: PropTypes.shape({
-        title: assignTypes.title,
-        path: assignTypes.string
-    }).isRequired,
-    currentPage: assignTypes.string.isRequired,
 }
 
 export default NavigationBar

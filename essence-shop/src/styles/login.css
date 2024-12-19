@@ -1,0 +1,87 @@
+
+.login  {
+    background-image: url('../assets/bg4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.login .form {
+    background-color: #fff;
+    border-radius: 17px;
+    width: 350px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.login .form form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.login .form button{
+    width: 100%;
+}
+
+.login input {
+    height: 30px;
+}
+
+.login .form .passwordContainer .icon {
+    height: 24px;
+}
+
+.login .passwordContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--essence-gold);
+    padding-right: 12px;
+    justify-content: space-between;
+}
+
+.login .passwordContainer input {
+    border:none
+}
+
+.login form a {
+    text-decoration: none;
+    color: var(--essence-red);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.login form a,
+.login .form p,
+.login form h2 {
+    text-align: center;
+}
+
+.login form h2 {
+    color: var(--essence-red);
+}
+
+.login form span,
+.login .form p
+ {
+    color: var(--essence-gold);
+}
+
+.login .form p {
+    font-weight: bold;
+    font-size: 12px;
+    width: 200px;
+    margin-top: -2px;
+
+}
+
+.login .divider {
+    margin: 0;
+}

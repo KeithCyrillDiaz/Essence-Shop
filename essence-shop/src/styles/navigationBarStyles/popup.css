@@ -1,0 +1,23 @@
+
+
+.navigationBarContainer .mainbuttonContainer {
+    position: relative;
+}
+
+.navigationBarContainer .navigationBarPopUp {
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    left: -20%;
+    top: 120%;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.7);
+    border-radius: 7px;
+}
+
+.navigationBarContainer .navigationBarPopUp  button {
+    width: 120px;
+    background-color: transparent;
+    color: var(--essence-red);
+}

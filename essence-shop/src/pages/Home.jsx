@@ -5,7 +5,7 @@ import { AboutUs, BestSellers, Carousel, Categories, ExploreScents, Footer, GetI
 function Home() {
   return (
     <>
-      <NavigationBar MainButton={{title: 'SIGN IN', path: '/register'}} currentPage="Home"/>
+      <NavigationBar/>
       <Carousel/>
       <Categories/>
       <BestSellers/>

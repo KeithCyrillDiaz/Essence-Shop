@@ -33,11 +33,14 @@ const ExploreScents = () => {
                 console.error(response.status);
                 return;
             }
+
             const {data} = response.data;
+
             if(!data) {
                 console.log("Data not Found");
                 return;
             }
+            
             setProducts(data);
             console.log("Successfully Fetched Products");
 
