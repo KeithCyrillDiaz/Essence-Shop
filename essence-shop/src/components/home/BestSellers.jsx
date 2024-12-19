@@ -25,10 +25,11 @@ const BestSellers = () => {
                 }}
             )
 
-            if(!response.data.data) {
-                console.error(response.status);
-                return
+            if (!response.data || !response.data.data) {
+                console.error('No data found', response.status);
+                return;
             }
+            
             const {data} = response.data;
 
             if(data.length === 0) {

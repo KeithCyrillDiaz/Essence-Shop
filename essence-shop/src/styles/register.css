@@ -59,3 +59,8 @@
  
     background-color: #FAF9F6;
 }
+
+.register .form .passwordContainer {
+    display: flex;
+    align-items: center;
+}
