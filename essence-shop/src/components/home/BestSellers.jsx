@@ -31,6 +31,11 @@ const BestSellers = () => {
             }
             const {data} = response.data;
 
+            if(data.length === 0) {
+                setBestSellersData([]);
+                return
+            }
+
             const formattedData = data.map((item) => {
                 const {occasion, bestFor} = item;
                 return {
