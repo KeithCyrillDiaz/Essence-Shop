@@ -1,0 +1,20 @@
+
+.space {
+    padding: 50px
+}
+
+
+.carouselContainer {
+    width: 100%;
+    box-shadow: 0px 7px 7px rgba(0,0,0,0.5);
+    justify-self: center;
+}
+
+.carouselContainer img {
+    height: 100%;
+    width: 100%;
+}
+
+.carouselContainer .swiper-container {
+    overflow: hidden;
+}

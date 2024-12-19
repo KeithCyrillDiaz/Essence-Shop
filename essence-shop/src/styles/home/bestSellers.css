@@ -1,0 +1,21 @@
+
+
+.bestSeller {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.bestSeller .slick-list {
+    padding: 10px 10px;
+    margin: 0 120px;
+    max-width: 1100px;
+    justify-self: center;
+}
+
+
+.bestSeller .itemsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

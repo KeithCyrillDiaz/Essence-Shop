@@ -1,0 +1,45 @@
+@import url('./roots.css');
+@import url('./navigationBarStyles/navigationBar.css');
+@import url('./loader.css');
+@import url('./itemCard.css');
+@import url('./pagination.css');
+@import url('./home//home.css');
+@import url('./login.css');
+@import url('./register.css');
+
+.container {
+    margin: 0 100px;
+    color: black;
+    max-width: 1300px;
+    justify-self: center;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.divider h1 {
+    color: var(--essence-gold);
+    text-align: center;
+    margin: 0 12px
+}
+
+.divider .line {
+   display: flex;
+   width: 27%;
+}
+
+.divider .line svg {
+    margin: 0;
+    padding: 0;
+}
+
+.noDataFound {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}

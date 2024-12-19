@@ -1,0 +1,39 @@
+
+
+.register {
+    background-image: url('../assets/bg4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerContainer { 
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.register .form {
+    background-color: #fff;
+    border-radius: 17px;
+    width: 30%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.register .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.register input {
+    height: 30px;
+
+    background-color: #FAF9F6;
+}

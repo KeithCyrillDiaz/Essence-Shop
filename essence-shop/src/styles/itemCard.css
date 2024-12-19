@@ -1,0 +1,88 @@
+.itemsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemCard {
+    background-color: var(--essence-mainBg);
+    box-shadow: 0 7px 7px rgba(0,0,0,0.5);
+    padding: 16px;
+    width: 225px;
+    height: 350px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    transition: 0.2s ease-in;
+}
+
+.itemCard:hover {
+    transform: translateY(-2%);
+    cursor: pointer;
+}
+
+.itemCard .imgContainer {
+    background: linear-gradient(to bottom, var(--essence-gold), black);
+    height: 150px;
+    width: auto;
+    border-radius: 7px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemCard .imgContainer img {
+    height: 175px;
+    width: auto;
+    object-fit:contain;
+}
+
+.itemCard .details {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.itemCard .price {
+    text-align: end;
+}
+
+.itemCard .tagsContainer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 5px 0;
+}
+
+.itemCard .tagsContainer .tags {
+    background-color: var(--essence-gold);
+    color: black;
+    padding: 3px 7px;
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+
+.itemCard button {
+    padding: 4px 0;
+}
+
+
+.itemCard .addButton {
+    border: 1px solid var(--essence-gold);
+    background-color: var(--essence-offWhite);
+    color: black;
+    font-family: Open Sans;
+    font-weight: bold;
+}
+
+.itemCard .buyButton {
+    border: 1px solid var(--essence-gold);
+    background-color: var(--essence-gold);
+    color: black;
+    font-family: Open Sans;
+    font-weight: bold;
+}

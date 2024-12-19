@@ -1,0 +1,108 @@
+
+.categories {
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.categories .frameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 16px;
+}
+
+.categories .frame {
+    width: 225px;
+    padding: 16px;
+    height: 200px;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.5);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+    font-family: Oswald;
+    font-size: 17px;
+}
+
+.categories .frame:hover {
+    transform: translateY(-1.7%);
+}
+
+
+.categories .frame .imgContainer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.categories .frame img {
+    height: 150px;
+    width: auto;
+    object-fit: cover;
+}
+
+.categories .frame h4 {
+    text-align: center;
+}
+
+
+.categories .scentProfile {
+    background-color: lightblue;
+
+}
+
+.categories .slick-list {
+    padding: 10px 10px;
+    margin: 0 100px;
+    max-width: 1100px;
+    justify-self: center;
+}
+
+
+
+/* colors */
+
+/* Seasons */
+.fallColor {
+    background: linear-gradient(to bottom, #FF7043, white);
+}
+
+.springColor {
+    background: linear-gradient(to bottom, #A8E6CF, white);
+}
+
+.summerColor {
+    background: linear-gradient(to bottom, #FFE082, white);
+}
+
+.winterColor {
+    background: linear-gradient(to bottom, #55DAEB, white);
+}
+
+
+/* ScentProfiles */
+
+.fruityColor {
+    background: linear-gradient(to bottom, #FFB6C1, white);
+}
+
+.sweetColor {
+    background: linear-gradient(to bottom, #FFD180, white);
+}
+
+.freshColor {
+    background: linear-gradient(to bottom, #A8E6CF, white);
+}
+
+.woodyColor {
+    background: linear-gradient(to bottom, #8D6E63, white);
+}
+
+.floralColor {
+    background: linear-gradient(to bottom, #E1BEE7, white);
+}
+
+
+.spicyColor {
+    background: linear-gradient(to bottom, #FFB300, white);
+}

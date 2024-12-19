@@ -1,0 +1,58 @@
+
+
+.getInTouch {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.getInTouch .form {
+    background-color: white;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.5);
+    width: 500px;
+    max-width: 700px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px;
+    border-radius: 12px;
+    gap: 16px
+}
+
+.getInTouch .form .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+
+.getInTouch .form input {
+    background-color: var(--essence-mainBg);
+    border: 1px solid var(--essence-gold);
+    height: 30px;
+    padding: 5px 10px;
+    color: black;
+    border-radius: 5px;
+}
+
+.getInTouch .form .field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.getInTouch .form textarea {
+    background-color: var(--essence-mainBg);
+    border: 1px solid var(--essence-gold);
+    color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: Open Sans;
+}
+
+.getInTouch button {
+    background-color: var(--essence-gold);
+    color: black;
+}

@@ -1,0 +1,37 @@
+
+.navigationBarContainer {
+    background-color: var(--essence-red);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    justify-content: space-evenly;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.navigationBarContainer .icon {
+    height: 36px;
+    width: auto;
+    transition: 0.2s ease-in-out;
+}
+
+.navigationBarContainer .icon:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.navigationBarContainer .navigationBarMainButton {
+    background-color: white;
+    color: var(--essence-red);
+    font-weight: bold;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+.navigationBarContainer .navigationBarMainButton:hover {
+    background-color: var(--essence-hover-white);
+}
+

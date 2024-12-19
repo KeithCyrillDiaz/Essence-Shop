@@ -1,0 +1,21 @@
+
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 0;
+    gap: 8px
+}
+
+.pagination button {
+    background-color: white;
+    border: 1px solid var(--essence-gold);
+    color: black;
+    padding: 10px 20px;
+}
+
+
+.pagination .icon {
+    height: 24px;
+}

@@ -1,0 +1,36 @@
+
+
+
+.footer {
+    background-color: var(--essence-red);
+    margin-top: 40px;
+    padding: 70px 0;
+}
+
+.footer .cardContainer {
+    display: flex;
+    color: white;
+    gap: 40px;
+
+}
+
+.footer .cardContainer .details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer .cardContainer .icon {
+    height: 20px;
+}
+
+.footer .cardContainer h4,
+.footer .cardContainer svg
+{
+    padding: 0;
+    margin: 0;
+}
+
+.footer .negativeMargin {
+    margin-left: -18px
+}

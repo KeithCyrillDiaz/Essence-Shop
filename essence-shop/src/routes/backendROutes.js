@@ -7,8 +7,13 @@ const backendRoutes = {
         register: `${BASED_URL}/EssenceShop/user/register`,
         login: `${BASED_URL}/EssenceShop/user/login`,
     },
+    products: {
+        getBestSellers: `${BASED_URL}/EssenceShop/user/products/getBestSellers`,
+        getAllproducts: `${BASED_URL}/EssenceShop/user/products/getAllProducts`
+    },
+
     admin: {
-        userCount: `http://localhost:3001/EssenceShop/count/user/`
+        userCount: `${BASED_URL}/EssenceShop/count/user/`
     }
 }
 

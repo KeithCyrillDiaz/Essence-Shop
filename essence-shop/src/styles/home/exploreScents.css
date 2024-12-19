@@ -1,0 +1,15 @@
+
+
+
+.exploreScents{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.exploreScents .productsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 8fr); /* 4 columns */
+    gap: 20px;
+}

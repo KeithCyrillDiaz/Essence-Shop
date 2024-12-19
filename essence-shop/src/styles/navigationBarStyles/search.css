@@ -1,0 +1,36 @@
+
+.navigationBarContainer .searchField,
+.navigationBarContainer .searchField input 
+{
+    background-color: white;
+}
+
+.navigationBarContainer .searchField {
+    display: flex;
+    align-items: center;
+    padding: 2px 2px;
+    border-radius: 4px;
+    width: 20%;
+}
+
+.navigationBarContainer .searchField input {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    height: 25px;
+    width: 100%;
+    color: black;
+    font-size: 17px;
+}
+
+.navigationBarContainer .searchField .icon {
+    background-color: var(--essence-red);
+    height: 30px;
+    padding: 2px 4px;
+    transition: 0.2s ease-in-out;
+}
+
+.navigationBarContainer .searchField .icon:hover {
+    cursor: pointer;
+    background-color: var(--essence-hover-red);
+}

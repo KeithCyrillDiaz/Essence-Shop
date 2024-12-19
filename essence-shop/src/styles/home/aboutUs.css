@@ -1,0 +1,32 @@
+
+
+.aboutUs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.aboutUs .contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 100px;
+    gap: 70px
+}
+
+.aboutUs .contents .imgContainer {
+    height: 500px;
+    width: 500px;
+}
+
+.aboutUs .contents .imgContainer img {
+    height: 500px;
+    object-fit: contain;
+}
+
+.aboutUs .contents p {
+    text-align: justify;
+    font-family: Open Sans;
+    font-size: px;
+}
