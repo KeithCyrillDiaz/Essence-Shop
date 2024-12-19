@@ -74,13 +74,6 @@
     color: var(--essence-gold);
 }
 
-.login .form p {
-    font-weight: bold;
-    font-size: 12px;
-    width: 200px;
-    margin-top: -2px;
-
-}
 
 .login .divider {
     margin: 0;

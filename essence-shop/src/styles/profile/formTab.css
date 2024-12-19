@@ -1,0 +1,26 @@
+
+
+.formTab {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.2);
+    margin: 10px 0;
+}
+
+.formTab button {
+    background-color: unset;
+    color: black;
+    font-family: Roboto;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    font-size: 12px;
+}
+
+.formTab .highlight {
+    color: var(--essence-gold);
+    font-weight: bold;
+}

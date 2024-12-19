@@ -1,0 +1,71 @@
+
+
+.historItemContainer {
+    background-color: #fff;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.2);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.historItemContainer .left {
+    display: flex;
+    align-items: start;
+    gap: 12px
+}
+
+.historItemContainer  h3,
+.historItemContainer p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.historItemContainer .imgContainer {
+    background: linear-gradient(to bottom, var(--essence-gold), black);
+    height:80px;
+    width: 80px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.historItemContainer .imgContainer img {
+    height: 90px;
+}
+
+.historItemContainer .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 12px
+}
+
+.historItemContainer .right .buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.historItemContainer .right button {
+    background-color: unset;
+    border-radius: 7px;
+    font-size: 12px;
+    width: 100px;
+    padding: 3px 0;
+    margin: 0;
+}
+
+.historItemContainer .right .buttons .rate {
+    color: black; 
+    background-color: var(--essence-offWhite);
+    border: 1px solid var(--essence-gold)
+}
+
+.historItemContainer .right .buttons .buyAgain {
+    background-color: var(--essence-red);
+}

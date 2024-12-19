@@ -1,12 +1,11 @@
 import Home from "./Home";
 import LogIn from "./LogIn";
-import NotFound from "./NotFound";
 import Register from "./Register";
-
+import Profile from "./Profile";
 
 export {
     Home,
     LogIn,
-    NotFound,
-    Register
+    Register,
+    Profile
 }

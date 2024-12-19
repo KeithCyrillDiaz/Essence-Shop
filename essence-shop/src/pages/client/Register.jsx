@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import DatePicker from 'react-datepicker';
-import assignTypes from '../constant/PropTypes'
+import assignTypes from '../../constant/PropTypes'
 import "react-datepicker/dist/react-datepicker.css"; // CSS for the calendar
 import { format } from 'date-fns'; // Optional for custom date formatting
 import axios from 'axios';
-import backendRoutes from '../routes/backendROutes';
+import backendRoutes from '../../routes/backendROutes';
 import { useNavigate } from 'react-router-dom';
-import { Modal } from '../components';
-import { EyeOffIcon, EyeOnIcon } from '../components/icons';
+import { Modal } from '../../components';
+import { EyeOffIcon, EyeOnIcon } from '../../components/icons';
 
 
 const RegisterForm = ({handleUpdateForm, handleSubmit}) => {

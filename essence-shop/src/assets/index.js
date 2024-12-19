@@ -14,6 +14,7 @@ import orientalAndSpicy from './scentProfiles/Oriental and Spicy.jpg'
 import sweet from './scentProfiles/Sweet.png'
 import woodyAndEarthy from './scentProfiles/Woody Depths.jpg'
 import aboutUsImage from './aboutUs/aboutUs.jpg'
+import userProfile from './userProfile.png'
 
 export {
     carousel_image1,
@@ -30,7 +31,8 @@ export {
     orientalAndSpicy,
     sweet,
     woodyAndEarthy,
-    aboutUsImage
+    aboutUsImage,
+    userProfile
 }
 
 

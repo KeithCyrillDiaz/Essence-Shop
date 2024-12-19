@@ -10,6 +10,10 @@ import AboutUs from "./home/AboutUs";
 import GetInTouch from "./home/GetInTouch";
 import Footer from "./Footer";
 import Modal from "./Modal";
+import FormDivider from "./FormDivider";
+import HistoryItemCard from "./HistoryItemCard";
+import ProfleContents from "./client/Profile/ProfleContents";
+import FormTable from "./FormTable";
 
 export {
     Divider,
@@ -23,5 +27,9 @@ export {
     AboutUs,
     GetInTouch,
     Footer,
-    Modal
+    Modal,
+    FormDivider,
+    HistoryItemCard,
+    ProfleContents,
+    FormTable
 }

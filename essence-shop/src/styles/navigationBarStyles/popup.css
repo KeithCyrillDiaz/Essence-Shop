@@ -9,15 +9,35 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    padding: 5px 10px;
-    left: -20%;
+    left: -35%;
     top: 120%;
     box-shadow: 0 7px 7px rgba(0,0,0,0.7);
     border-radius: 7px;
+    gap: 4px;
+    padding: 5px 0px;
+}
+
+.navigationBarContainer .navigationBarPopUp .item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding: 10px 20px;
+    width: 110px;
+    gap: 4px;
+    padding-left: 25px;
+}
+
+.navigationBarContainer .navigationBarPopUp .item:hover {
+    background-color: var(--essence-offWhite);
 }
 
 .navigationBarContainer .navigationBarPopUp  button {
-    width: 120px;
     background-color: transparent;
     color: var(--essence-red);
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 0;
 }
+

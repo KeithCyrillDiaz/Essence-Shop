@@ -1,0 +1,11 @@
+@import url('./historyDetails.css');
+@import url('./userDetails.css');
+@import url('./formTab.css');
+
+
+.profileContents {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

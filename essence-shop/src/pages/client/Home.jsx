@@ -1,4 +1,4 @@
-import { AboutUs, BestSellers, Carousel, Categories, ExploreScents, Footer, GetInTouch, NavigationBar } from "../components"
+import { AboutUs, BestSellers, Carousel, Categories, ExploreScents, Footer, GetInTouch, NavigationBar } from "../../components"
 
 
 
