@@ -25,7 +25,7 @@ const BestSellers = () => {
                 }}
             )
 
-            if(!response.data) {
+            if(!response.data.data) {
                 console.error(response.status);
                 return
             }
@@ -47,7 +47,8 @@ const BestSellers = () => {
             setBestSellersData(formattedData);
 
         } catch (error) {
-            console.error(error);
+            console.error("Error Fetching Best Sellers", error);
+
         } finally {
             setLoading(false);
         }

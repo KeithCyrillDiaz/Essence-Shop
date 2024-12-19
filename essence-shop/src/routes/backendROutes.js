@@ -1,6 +1,5 @@
 
 const BASED_URL = import.meta.env.VITE_BACKEND_URL;
-console.log('Based Url: ', BASED_URL);
 
 const backendRoutes = {
     user: {

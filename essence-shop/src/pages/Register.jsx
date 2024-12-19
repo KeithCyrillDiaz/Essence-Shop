@@ -6,7 +6,7 @@ import assignTypes from '../constant/PropTypes'
 import "react-datepicker/dist/react-datepicker.css"; // CSS for the calendar
 import { format } from 'date-fns'; // Optional for custom date formatting
 
-const RegisterForm = ({handleUpdateForm}) => {
+const RegisterForm = ({handleUpdateForm, handleSignUp}) => {
 
     const [genderValue, setGenderValue] = useState("");
     const [startDate, setStartDate] = useState(null);
@@ -29,7 +29,7 @@ const RegisterForm = ({handleUpdateForm}) => {
   return (
     <div className='form'>
       <h2>Essence <span>Shop</span></h2>
-      <div className="row">
+      <div className="row width">
         <input type="text" 
         placeholder='First Name'
         onChange={(e) => handleUpdateForm("firstName", e.target.value)}
@@ -69,7 +69,7 @@ const RegisterForm = ({handleUpdateForm}) => {
         placeholder='Email'
         onChange={(e) => handleUpdateForm("email", e.target.value)}
       />
-      <div className="row">
+      <div className="row width">
         <input type="password" 
             placeholder='Password'
             onChange={(e) => handleUpdateForm("password", e.target.value)}

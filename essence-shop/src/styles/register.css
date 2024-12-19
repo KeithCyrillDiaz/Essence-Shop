@@ -19,25 +19,43 @@
 .register .form {
     background-color: #fff;
     border-radius: 17px;
-    width: 30%;
-    padding: 10px 20px;
+    width: 350px;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px
+    gap: 12px;
 }
 
 .register .form h2 {
     text-align: center;
+    color: var(--essence-red);
+    font-size: 32px;
 }
+
+.register .form h2 span {
+    color: var(--essence-gold);
+}
+
+.register .form a {
+    text-decoration: none;
+    color: var(--essence-red);
+    text-align: center;
+    font-weight: bold;
+}
+
 
 .register .row {
     display: flex;
     justify-content: space-between;
 }
 
+.register .form .width input {
+    width: 40%;
+}
+
 
 .register input {
     height: 30px;
-
+ 
     background-color: #FAF9F6;
 }
