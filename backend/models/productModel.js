@@ -21,10 +21,13 @@ const productSchema = new mongoose.Schema({
   quantity: {type: Number, required: true},
   rating: { type: Number, default: 0 },
   totalRating: { type: Number, default: 0 },
+  imageOf: { type: String, required: true}
 }, { timestamps: true });
 
 productSchema.index({userId: 1});
 productSchema.index({quantity: 1});
+productSchema.index({rating: 1, totalRating: 1});
+
 
 const Product = mongoose.model('Product', productSchema);
 

@@ -103,6 +103,33 @@ const createProduct = async (req, res, next) => {
     }
 }
 
+const getAllproducts = async (req, res, next) => {
+    try {
+
+        logger.Event("Get All Products Started");
+
+        const result = await Product.find();
+
+        if(result.length === 0) {
+            return res.status(404).json({
+                code: 'GAP_001',
+                message: "No Products Found"
+            })
+        }
+
+        logger.Success("Successfully Retrieved Products");
+
+        return res.status(200).json({
+            code: 'GAP_000',
+            message: "Successfully Retrieved Products",
+            data: result
+        })
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 const getProduct = async (req, res, next) => {
     try {
@@ -275,10 +302,56 @@ const deleteProductById = async (req, res, next) => {
     }
 }
 
+const getBestSellers = async (req, res, next) => {
+    try {
+
+        logger.Event("Get Best Sellers Started");
+        const result = await Product.aggregate([
+            {
+              // Step 1: Calculate the dynamic rating by dividing the rating by totalRating
+              $addFields: {
+                dynamicRating: { $cond: { if: { $eq: ["$totalRating", 0] }, then: 0, else: { $divide: ["$rating", "$totalRating"] } } }
+              }
+            },
+            {
+              // Step 2: Filter products where the calculated rating is >= 4
+              $match: { dynamicRating: { $gte: 4 } }
+            },
+            {
+              // Step 3: Sort by the dynamicRating in descending order
+              $sort: { dynamicRating: -1 }
+            },
+            {
+              // Step 4: Limit the results to the top 5
+              $limit: 5
+            }
+          ]).exec();
+
+
+        if(!result) {
+            return res.status(404).json({
+                code: 'GBS_001',
+                message: "No Products with rating of  Found"
+            })
+        }
+
+        return res.status(200).json({
+            code: 'GBS_000',
+            message: "Succesfully Fetched Best Sellers",
+            data: result
+        })
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     createProduct,
     getProduct,
     getProductsById,
     updateProductById,
-    deleteProductById
+    deleteProductById,
+    getBestSellers,
+    getAllproducts
 }
