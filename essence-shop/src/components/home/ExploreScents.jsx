@@ -19,6 +19,7 @@ const ExploreScents = () => {
 
     const fetchProducts = async () => {
         try {
+            console.log("Fetching Products");
             const response = await axios.get(
                 backendRoutes.products.getAllproducts,
                 {
@@ -33,9 +34,15 @@ const ExploreScents = () => {
                 return;
             }
             const {data} = response.data;
+            if(!data) {
+                console.log("Data not Found");
+                return;
+            }
             setProducts(data);
+            console.log("Successfully Fetched Products");
 
         } catch (error) {
+            console.log("Error Fetching Products");
             console.error(error);
         } finally {
             setLoading(false);

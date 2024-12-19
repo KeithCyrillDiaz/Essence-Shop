@@ -6,6 +6,7 @@
 @import url('./home//home.css');
 @import url('./login.css');
 @import url('./register.css');
+@import url('./modal.css');
 
 .container {
     margin: 0 100px;

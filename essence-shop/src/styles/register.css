@@ -59,8 +59,28 @@
  
     background-color: #FAF9F6;
 }
+.register .form .passwordContainer .icon {
+    height: 24px;
+}
+
 
 .register .form .passwordContainer {
     display: flex;
     align-items: center;
+    border: 1px solid var(--essence-gold);
+    border-radius: 4px;
+    background-color: var(--essence-mainBg);
+    width: 165px;
+    justify-content: space-between;
+    padding-right: 12px;
 }
+
+.register .form .passwordContainer input {
+    border: none;
+}
+
+.register .react-datepicker__header h2 {
+    font-size: 20px;
+    padding: 10px 0;
+}
+

@@ -18,6 +18,7 @@ const BestSellers = () => {
 
     const fetchData = async () => {
         try {
+            console.log("Fetching Best Sellers");
             const response = await axios.get(
                 backendRoutes.products.getBestSellers,
                 {headers: {
@@ -29,12 +30,12 @@ const BestSellers = () => {
                 console.error('No data found', response.status);
                 return;
             }
-            
+
             const {data} = response.data;
 
             if(data.length === 0) {
                 setBestSellersData([]);
-                return
+                return;
             }
 
             const formattedData = data.map((item) => {
@@ -46,6 +47,8 @@ const BestSellers = () => {
             })
 
             setBestSellersData(formattedData);
+            console.log("data: ", data)
+            console.log("Successfully Fetched Best Sellers");
 
         } catch (error) {
             console.error("Error Fetching Best Sellers", error);

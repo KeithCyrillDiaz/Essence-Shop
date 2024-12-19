@@ -9,6 +9,7 @@ import Pagination from "./Pagination";
 import AboutUs from "./home/AboutUs";
 import GetInTouch from "./home/GetInTouch";
 import Footer from "./Footer";
+import Modal from "./Modal";
 
 export {
     Divider,
@@ -21,5 +22,6 @@ export {
     Pagination,
     AboutUs,
     GetInTouch,
-    Footer
+    Footer,
+    Modal
 }
