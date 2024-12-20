@@ -1,7 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import assignTypes from '../constant/PropTypes';
 import { SearchIcon, ShoppingCartIcon } from './icons';
+import SessionExpired from './sessionExpired';
+
 
 
 const SearchField = ({onClick, value, onChangeText}) => {
@@ -26,17 +28,25 @@ SearchField.propTypes ={
 
 
 
-const TabButton = ({title, path}) => {
-  return ( 
-    <a href={path}> 
-    {title}
-    </a>
-  )
+const TabButton = ({title, path, currentPage}) => {
+
+  const Element = currentPage === "Home" ? "a" : Link;
+  const elementProps =
+  currentPage === "Home"
+    ? { href: path } // Use 'href' for <a>
+    : { to: '/' };  // Use 'to' for <Link>
+
+    return (
+      <Element {...elementProps}>
+        {title}
+      </Element>
+    );
 }
 
 TabButton.propTypes = {
     title: assignTypes.title,
-    path: assignTypes.string
+    path: assignTypes.string,
+    currentPage: assignTypes.string
 };
 
 
@@ -85,13 +95,13 @@ NavigationBarPopUp.propTypes = {
 }
 
 
-const NavigationBar = () => {
+const NavigationBar = ({currentPage}) => {
 
     const isUserLogIn = localStorage.getItem('token');
 
     const tabButtons = [
         { title: "Home", path: "#home"},
-        { title: "Categories", path: "#categories" },
+        { title: "Categories", path: "#categories"},
         { title: "Shop", path: "#shop" },
         { title: "About", path: "#about" },
         { title: "Contact", path: "#contact"},
@@ -99,8 +109,29 @@ const NavigationBar = () => {
 
     const navigation = useNavigate();
 
-    const [showPopUp, setShowPopUp] = useState(false)
+    const [showPopUp, setShowPopUp] = useState(false);
+    const [showSessionExpired, setShowSessionExpired] = useState(false);
 
+    const handleNavigateProfile = () => {
+      const id = localStorage.getItem('id');
+      if(!id) {
+        setShowSessionExpired(true);
+        return;
+      }
+      navigation(`/profile/${id}`);
+    }
+
+
+    const handleNavigateCart = () => {
+      const token = localStorage.getItem('token');
+      const id = localStorage.getItem('id');
+      if(!token) {
+        navigation('/register');
+        return;
+      }
+
+      navigation(`/Cart/${id}`);
+    }
   return (
     <div className="navigationBarContainer">
        <h2 className="logo">Essence Shop</h2>
@@ -113,12 +144,13 @@ const NavigationBar = () => {
                   key={index}
                   title={title}
                   path={path}
+                  currentPage = {currentPage}
                   onClick={() => navigation(path)}
               />
           )
         })}
         </div>
-        <ShoppingCartIcon onClick ={() => navigation('/Cart')}/>
+        <ShoppingCartIcon onClick ={() => handleNavigateCart()}/>
        <div className="mainbuttonContainer">
         <NavigationBarMainButton 
           title = {isUserLogIn ? "PROFILE" : "SIGN IN"} 
@@ -132,13 +164,17 @@ const NavigationBar = () => {
           />
           <NavigationBarPopUp 
           visible={showPopUp}
-          onClickProfile={() => navigation('/profile')}
+          onClickProfile={() => handleNavigateProfile()}
           onClickSellNow={() => navigation('/sellNow')}
           />
        </div>
-
+       {showSessionExpired && <SessionExpired/>}
     </div>
   )
+}
+
+NavigationBar.propTypes ={ 
+  currentPage: assignTypes.string
 }
 
 export default NavigationBar

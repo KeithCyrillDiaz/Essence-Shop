@@ -6,7 +6,7 @@ const Modal = ({ message, isSuccess, title, onClose }) => {
       <div className="modal-overlay">
         <div className="modal-container" >
           <div className="header">
-            <h2 className={`${isSuccess ? "titleSuccess": "titleError"}`}>{title} {isSuccess ? "Completed" : "Failed"}</h2>
+            <h2 className={`${isSuccess ? "titleSuccess": "titleError"}`}>{title} {isSuccess ? "Completed" : isSuccess === false ? "Failed" : ''}</h2>
           </div>
           <p className="modal-message">{message}</p>
           <div className="footer">

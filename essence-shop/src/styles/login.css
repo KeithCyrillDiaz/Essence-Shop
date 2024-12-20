@@ -78,3 +78,7 @@
 .login .divider {
     margin: 0;
 }
+
+.login .form .reg {
+    background-color: var(--essence-red);
+}

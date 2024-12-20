@@ -12,14 +12,15 @@
 .historItemContainer .left {
     display: flex;
     align-items: start;
-    gap: 12px
+    gap: 12px;
 }
 
-.historItemContainer  h3,
+
+.historItemContainer h3,
 .historItemContainer p {
     margin: 0;
     padding: 0;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .historItemContainer .imgContainer {
@@ -67,5 +68,5 @@
 }
 
 .historItemContainer .right .buttons .buyAgain {
-    background-color: var(--essence-red);
+    background-color: var(--essence-gold);
 }

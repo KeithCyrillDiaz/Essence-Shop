@@ -8,7 +8,7 @@ import { format } from 'date-fns'; // Optional for custom date formatting
 import axios from 'axios';
 import backendRoutes from '../../routes/backendROutes';
 import { useNavigate } from 'react-router-dom';
-import { Modal } from '../../components';
+import { Loader, Modal } from '../../components';
 import { EyeOffIcon, EyeOnIcon } from '../../components/icons';
 
 
@@ -28,8 +28,8 @@ const RegisterForm = ({handleUpdateForm, handleSubmit}) => {
         // Format the date as YYYY-MM-DD before passing it to the parent
         if (date) {
             const formattedDate = format(date, 'yyyy-MM-dd'); // Change this format if needed
-            // handleBirthdayChange(formattedDate);
             console.log("birthday: ", formattedDate);
+            handleUpdateForm("birthday", formattedDate);
         }
     };
 
@@ -123,13 +123,17 @@ RegisterForm.propTypes = {
 const Register = () => {
 
     const navigate = useNavigate();
+
+    const [loading, setLoading] =useState(false);
+
     const [form, setForm] = useState({
         firstName: "",
         lastName: "",
         gender: "",
         birthday: "",
         email: "",
-        password: ""
+        password: "",
+        mobileNumber: ""
     })
 
     const [modalSettings, setModalSettings] = useState({
@@ -160,8 +164,11 @@ const Register = () => {
         }
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
         try {
+            e.preventDefault();
+            setLoading(true);
+            console.log("Registring Details");
             const response = await axios.post(
                 backendRoutes.user.register,
                 form
@@ -179,10 +186,14 @@ const Register = () => {
         } catch (error) {
             handleUpdateModalSettings("message", "Registration Failed! Please try again.");
             console.error("Error Sign In", error);
+        } finally {
+            setLoading(false);
         }
     }
 
-
+    if(loading) {
+        return <Loader/>
+    }
   return (
     <div className='register'>
       <div className="container formPosition">

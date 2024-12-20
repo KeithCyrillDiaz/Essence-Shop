@@ -42,7 +42,7 @@ const LoginForm = ({handleUpdateForm, handleSubmit, handleRegister})  => {
           <a href="/forgotPassword">Forgot Password</a>
       </form>
        <FormDivider title="Dont have an Account?"/>
-      <button onClick={handleRegister}>REGISTER</button>
+      <button className="reg" onClick={handleRegister}>REGISTER</button>
      </div>
   )
 }
@@ -86,8 +86,9 @@ const LogIn = () => {
         return;
       }
 
-      const {token} = response.data;
+      const {token, id} = response.data;
       localStorage.setItem('token', token);
+      localStorage.setItem('id', id);
       navigate('/');
 
     } catch (error) {

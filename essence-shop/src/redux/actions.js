@@ -23,3 +23,17 @@ export const updateCloudCartCount = (number) => ({
     type: "UPDATE_CLOUD_CART_COUNT",
     payload: number
 })
+
+export const updateQuantity = (id, value) => ({
+    type: "UPDATE_QUANTITY",
+    payload: {
+        id,
+        value
+    }
+})
+
+export const updateWholeCart = (items) => ({
+    type: 'UPDATE_WHOLE_CART',
+    payload: items
+})
+

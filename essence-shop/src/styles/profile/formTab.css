@@ -2,19 +2,19 @@
 
 .formTab {
     background-color: #fff;
-    padding: 10px 20px;
+    padding: 10px 10px;
     display: flex;
     align-items: center;
-    gap: 24px;
     box-shadow: 0 7px 7px rgba(0,0,0,0.2);
     margin: 10px 0;
+   justify-content: space-between;
 }
 
 .formTab button {
     background-color: unset;
     color: black;
     font-family: Roboto;
-    font-weight: 400;
+    font-weight: 500;
     border: none;
     outline: none;
     font-size: 12px;

@@ -47,6 +47,20 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 cloudCartCount: action.payload
             }
+
+        case 'UPDATE_QUANTITY': 
+            return {
+                ...state,
+                cart: state.cart.map((item) => ({
+                    ...item,
+                    quantity: item.productId._id === action.payload.id ?  item.quantity + action.payload.value : item.quantity
+                }))
+            }
+        case 'UPDATE_WHOLE_CART':
+            return {
+                ...state,
+                cart: action.payload
+            }
         
         default:
             return state;

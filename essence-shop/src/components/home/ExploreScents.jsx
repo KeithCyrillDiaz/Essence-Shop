@@ -4,7 +4,6 @@ import backendRoutes from "../../routes/backendROutes";
 import Loader from "../Loader";
 import { useEffect, useState } from "react";
 import ItemCard from "../ItemCard";
-import useCart from "../../hook/useCart";
 import usePagination from "../../hook/usePagination";
 import Pagination from "../Pagination";
 
@@ -12,14 +11,13 @@ const ExploreScents = () => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const {handleAddToCart, handleBuyNow} = useCart();
-    const {currentItems, totalPages, handlePageChange, currentPage} = usePagination(products)
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVjNGFhNDMxNmVlZmNiOWVjNzNjYTciLCJpYXQiOjE3MzQxODM3MTYsImV4cCI6MTczNDc4ODUxNn0.Q6jm-zFLrCQOddRdxs8pUJBBvzgY0qxSbG4PlSGLOZg"
+    const {currentItems, totalPages, handlePageChange, currentPage} = usePagination(products)
 
     const fetchProducts = async () => {
         try {
             console.log("Fetching Products");
+            const token = localStorage.getItem('token');
             const response = await axios.get(
                 backendRoutes.products.getAllproducts,
                 {
@@ -78,8 +76,6 @@ const ExploreScents = () => {
                 <ItemCard 
                     key={index}
                     item={item} 
-                    handleAddToCart={handleAddToCart} 
-                    handleBuyNow={handleBuyNow}
                 />
             ))}
         </div>

@@ -9,6 +9,7 @@
 @import url('./modal.css');
 @import url('./profile/profile.css');
 @import url('./historyItemCard.css');
+@import url('./client/cart.css');
 
 .container {
     margin: 0 100px;

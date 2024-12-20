@@ -3,12 +3,14 @@
     background-color: var(--essence-offWhite);
     box-shadow: 0 7px 7px rgba(0,0,0,0.3);
     padding: 15px 25px;
-    height: 400px;
-    max-height: 400px;
+    height: 500px;
+    max-height: 500px;
     display: flex;
     flex-direction: column;
     border-radius: 7px;
     gap: 4px;
+    margin: 20px;
+    width: 450px;
 }
 
 .orderHistory .divider {
@@ -17,11 +19,41 @@
 }
 
 .orderHistory .divider p {
-    font-size: 24px;
-    width: unset;
-    margin: 0;
+    font-size: 22px;
+    margin: 0 5px;
     padding: 0;
+    text-align: center;
 }
 
 
+.orderHistory .noData {
+    text-align: center;
+}
+
+.orderHistory .itemListContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: auto;
+    padding-bottom: 10px;
+}
+
+.orderHistory .itemListContainer::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  .orderHistory .itemListContainer::-webkit-scrollbar-track {
+    background-color: var(--essence-offWhite); /* Color of the scrollbar track */
+}
+  
+  .orderHistory .itemListContainer::-webkit-scrollbar-thumb {
+    background-color: var(--essence-gold); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Optional: rounding the edges of the thumb */
+  }
+  
+  .orderHistory .itemListContainer::-webkit-scrollbar-thumb:hover {
+    background-color: var(--essence-hover-gold) /* Color of the scrollbar thumb when hovered */
+}
 

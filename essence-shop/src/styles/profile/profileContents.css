@@ -4,8 +4,25 @@
 
 
 .profileContents {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 70px;
+    gap: 100px;
+    padding-left: 100px;
+    height: 500px;
+}
+
+.profileContents .sliderContainer {
+    max-width: 550px;
+    padding: 30px;
+}
+
+.profileContents .sliderContainer .slick-slider .slick-arrow {
+    background-color: var(--essence-gold);
+    transform: unset;
+}
+
+.profileContents .sliderContainer .slick-slider .slick-arrow:hover{
+    background-color: var(--essence-gold);
 }

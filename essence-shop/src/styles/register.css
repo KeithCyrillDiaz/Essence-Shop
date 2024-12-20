@@ -72,6 +72,7 @@
 
 .register .form .passwordContainer input {
     border: none;
+    width: 100%;
 }
 
 .register .react-datepicker__header h2 {

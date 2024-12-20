@@ -10,7 +10,6 @@ import useCart from "../../hook/useCart";
 const BestSellers = () => {
 
     const [bestSellerData, setBestSellersData] = useState([]);
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVjNGFhNDMxNmVlZmNiOWVjNzNjYTciLCJpYXQiOjE3MzQxODM3MTYsImV4cCI6MTczNDc4ODUxNn0.Q6jm-zFLrCQOddRdxs8pUJBBvzgY0qxSbG4PlSGLOZg"
 
     const [loading, setLoading] = useState(true);
     
@@ -19,6 +18,7 @@ const BestSellers = () => {
     const fetchData = async () => {
         try {
             console.log("Fetching Best Sellers");
+            const token = localStorage.getItem('token');
             const response = await axios.get(
                 backendRoutes.products.getBestSellers,
                 {headers: {

@@ -2,11 +2,16 @@ import PropTypes from "prop-types";
 import LazyLoad from "react-lazyload";
 import assignTypes from "../constant/PropTypes";
 import { Perfumes } from "../assets";
+import useCart from "../hook/useCart";
 
 
-const ItemCard = ({item, handleAddToCart, handleBuyNow}) => {
+const ItemCard = ({item}) => {
     const {productName, tags, price, imageOf, brand} = item;
     const uri = Perfumes?.[brand]?.[imageOf];
+
+    const {handleAddToCart, handleBuyNow} = useCart();
+
+
     return (
         <div className="itemCard">
             <div className="imgContainer">

@@ -5,7 +5,7 @@ import { AboutUs, BestSellers, Carousel, Categories, ExploreScents, Footer, GetI
 function Home() {
   return (
     <>
-      <NavigationBar/>
+      <NavigationBar currentPage={"Home"}/>
       <Carousel/>
       <Categories/>
       <BestSellers/>
