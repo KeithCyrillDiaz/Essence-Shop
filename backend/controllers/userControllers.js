@@ -128,7 +128,8 @@ const login = async (req, res, next) => {
         return res.status(200).json({
             code: 'LOG_000',
             message: `${fullName} Log in Successfully`,
-            token
+            token,
+            id: existingUser._id
         })
 
     } catch (error) {
@@ -307,6 +308,51 @@ const fetchUser = async (req, res, next) => {
     }
 }
 
+const  updateUserStatus = async (req, res, next) => {
+    try {
+        logger.Event("Update User Status Started");
+
+        const {status} = req.body;
+        const {userId} = req;
+        if(!status) {
+            return res.status(400).json({
+                code: 'UUS_001',
+                message: "status value is missing"
+            })
+        }
+
+        const user = await User.findById(userId);
+
+        if(!user) {
+            return res.status(404).json({
+                code: 'UUS_002',
+                message: "User Not Found"
+            })
+        }
+
+        user.status = status;
+
+        const result = await user.save();
+
+        if(!result) {
+            return res.status(500).json({
+                code: 'UUS_003',
+                message: "Something Went Wrong Please Try again"
+            })
+        }
+
+        logger.Success("Successfully Updated status of the user");
+
+        return res.status(200).json({
+            code: 'UUS_000',
+            message: "Successfully Updated status of the user"
+        })
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 module.exports = { 
     register,
@@ -315,4 +361,5 @@ module.exports = {
     updatePassword,
     deleteUser,
     fetchUser,
+    updateUserStatus
 };

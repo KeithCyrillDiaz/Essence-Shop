@@ -23,9 +23,7 @@ const getOrders = async (req, res, next) => {
                 code: 'GTO_001'
             })
         }
-
-        console.log("orders", orders);
-
+        
         const completeOrders = orders.filter(order => order.status === "Completed");
         const refundOrders = orders.filter(order => order.status === "Refunded");
         const cancelledOrders = orders.filter(order => order.status === "Cancelled");
@@ -248,7 +246,7 @@ const createOrder = async (req, res, next) => {
 }
 
 
-const updateOrderStatus = async (req, res, next) => {
+const   updateOrderStatus = async (req, res, next) => {
 
      // const session =   await mongoose.startSession(); uncomment this if deploy
 

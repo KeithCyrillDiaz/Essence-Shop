@@ -23,8 +23,6 @@ const getSales = async (req, res, next) => {
             })
         }
 
-        console.log('sales: ', sales)
-
         const completeSales = sales.filter(sales => sales.status === "Completed");
         const refundSales = sales.filter(sales => sales.status === "Refunded");
         const cancelledSales = sales.filter(sales => sales.status === "Cancelled");
@@ -43,8 +41,8 @@ const getSales = async (req, res, next) => {
             code: "GTO_000",
             message: "Successfully Fetch Sales",
             data: {
-                complete: completeSales,
-                refund: refundSales,
+                completed: completeSales,
+                refunded: refundSales,
                 cancelled: cancelledSales,
                 pending: pendingSales
             }

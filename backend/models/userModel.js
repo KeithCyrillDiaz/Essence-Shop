@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   mobileNumber: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, select: false }, // Exlude password from fetching by default
-  
+  username: { type: String, unique: true },
+
   rating: { type: Number, required: false, default: 0 },
   totalRating: { type: Number, required: false, default: 0 },
   productCount: { type: Number, required: false, default: 0 },

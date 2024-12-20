@@ -17,6 +17,8 @@ module.exports = (router) => {
     //updated
     router.patch('/user/update', userController.updateUserDetails);
     router.patch('/user/updatePassword', userController.updatePassword);
+    router.patch('/user/updateStatus', userController.updateUserStatus)
+
 
     router.delete('/user/delete', userController.deleteUser);
 }
