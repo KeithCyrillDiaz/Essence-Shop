@@ -126,7 +126,36 @@ const updateCart = async (req, res, next) => {
     }
 }
 
+
+const deleteCart = async (req, res, next) => {
+    try {
+        logger.Event("Delete Cart is Started");
+
+        const {userId} = req;
+
+        const result = await Cart.findOneAndDelete({userId});
+
+        logger.Success("Sucessfully Delted Cart");
+
+        if(!result) {
+            return res.status(404).json({
+                code: 'DCT_001',
+                message: "Cart Not Found"
+            })
+        }
+
+        return res.status(200).json({
+            code: 'DCT_000',
+            message: "Sucessfully Delted Cart"
+        })
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     getCartItems,
-    updateCart
+    updateCart,
+    deleteCart
 }

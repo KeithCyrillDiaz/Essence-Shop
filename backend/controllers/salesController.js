@@ -41,8 +41,8 @@ const getSales = async (req, res, next) => {
             code: "GTO_000",
             message: "Successfully Fetch Sales",
             data: {
-                completed: completeSales,
-                refunded: refundSales,
+                complete: completeSales,
+                refund: refundSales,
                 cancelled: cancelledSales,
                 pending: pendingSales
             }

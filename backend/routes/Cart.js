@@ -1,4 +1,4 @@
-const { getCartItems, updateCart } = require("../controllers/cartController")
+const { getCartItems, updateCart, deleteCart } = require("../controllers/cartController")
 
 module.exports = (router) => {
 
@@ -6,4 +6,6 @@ module.exports = (router) => {
     router.get('/user/cart/get', getCartItems);
 
     router.patch('/user/cart/updateAndGet', updateCart);
+
+    router.delete('/user/cart/delete' ,deleteCart)
 }
