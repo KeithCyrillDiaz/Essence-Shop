@@ -7,23 +7,32 @@ import backendRoutes from '../routes/backendROutes';
 import { useState } from 'react';
 import Loader from './Loader';
 
-const HistoryItemCard = ({item, selected}) => {
+const HistoryItemCard = ({item, selected, formTitle}) => {
 
     const {productId, price, quantity, receiptId} = item;
     const [loading, setLoading] = useState(false);
 
-    const {_id} = productId;
+    const {_id, brand, imageOf } = productId;
 
-    const handleCancelButton = async () => {
+    const uri = Perfumes?.[brand]?.[imageOf];
+
+    const handleCancelButton = async (status) => {
         try {
-            console.log("Cancelling Order");
+            if(status === 'cancel') {
+                console.log("Cancelling Order");
+            } else {
+                console.log("Shipping Order");
+            }
             const token = localStorage.getItem('token');
             setLoading(true);
             const response = await axios.patch(
                 `${backendRoutes.order.updateStatus}/${_id}`,
-                {status: "Cancelled", receiptId},
+                 {
+                    status: status === "cancel" ? "Cancelled" : "Completed",
+                    receiptId
+                 },
                 {headers: {
-                    Authorization: `Bearer ${token}`
+                    Authorization: `Bearer ${token}`    
                 }}
             );
 
@@ -51,7 +60,7 @@ const HistoryItemCard = ({item, selected}) => {
         <div className="historItemContainer">
            <div className="left">
                 <div className="imgContainer">
-                    <img src={Perfumes.Dior.Sauvage} alt="" />
+                    <img src={uri} alt="" />
                 </div>
                 <div className="fragDetails">
                     <p><strong>{productId.productName}</strong></p>
@@ -63,7 +72,7 @@ const HistoryItemCard = ({item, selected}) => {
                     <p>Amount: ₱ <strong>{price}</strong></p>
                     <p>Quantity: <strong>{quantity}</strong></p>
                 </div>
-               {selected === "Completed" && (
+               {selected === "Completed" && formTitle === 'order' && (
                  <div className="buttons">
                     <button className='rate'>Rate</button>
                     <button className='buyAgain'>Buy Again</button>
@@ -71,7 +80,8 @@ const HistoryItemCard = ({item, selected}) => {
                )}
                {selected === "Pending" && (
                  <div className="buttons">
-                    <button className='buyAgain' onClick={handleCancelButton}>Cancel</button>
+                    <button className='rate' onClick={() => handleCancelButton("cancel")}>Cancel</button>
+                   {formTitle !== 'order' &&  <button className='buyAgain' onClick={() => handleCancelButton("shipped")}>Shipped</button>}
                 </div>
                )}
             </div>
@@ -85,12 +95,16 @@ HistoryItemCard.propTypes = {
             _id: assignTypes.string,
             productName: assignTypes.string,
             size: assignTypes.string,
+            brand: assignTypes.string,
+            imageOf: assignTypes.string,
+            orderId: assignTypes.string
         }),
         price: assignTypes.number,
         quantity: assignTypes.number,
         receiptId: assignTypes.string
     }),
-    selected: assignTypes.string
+    selected: assignTypes.string,
+    formTitle: assignTypes.string
 }
 
 export default HistoryItemCard

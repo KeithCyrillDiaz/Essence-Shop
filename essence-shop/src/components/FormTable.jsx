@@ -62,7 +62,7 @@ const FormTable = ({ title, data }) => {
         ): (
            <div className="itemListContainer">
              {selectedData.map((item, index) =>(
-                 <HistoryItemCard key={index} item={item} selected={selected}/>
+                 <HistoryItemCard key={index} item={item} selected={selected} formTitle={title === "Order History" ? 'order': 'sales'}/>
              ))}
            </div>
         )}

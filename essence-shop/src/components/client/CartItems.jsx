@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from "../Loader";
 import axios from "axios";
 import backendRoutes from "../../routes/backendROutes";
-import { updateWholeCart, updateQuantity } from "../../redux/actions";
+import { updateWholeCart, updateQuantity, removeItem } from "../../redux/actions";
 import PropTypes from "prop-types";
+import { Perfumes } from "../../assets";
+import { SessionExpired } from "..";
 
 const CartTab = () => {
 
@@ -50,8 +52,14 @@ Options.propTypes = {
 
 const CartItemCard = ({item}) => {
 
-  const {_id, productName, size, price, quantity} = item;
+  const {_id, productName, size, price, quantity, brand, imageOf} = item;
   const amount = quantity * price;
+  const uri = Perfumes?.[brand]?.[imageOf];
+
+  const [isSessionExpired, setIsSessionExpired] = useState(false);
+
+  const cart = useSelector(state => state.cart);
+
   const dispatch = useDispatch();
   const handleIncrement = () => {
     dispatch(updateQuantity(_id, 1));
@@ -61,11 +69,45 @@ const CartItemCard = ({item}) => {
     dispatch(updateQuantity(_id, -1));
   }
 
+  const handleDeleteItem =  () => {
+    dispatch(removeItem(_id));
+    if(cart.length === 1) deleteCloudCart();
+  }
+
+  const deleteCloudCart = async () => {
+    try {
+        console.log("No items in cart, deleting cart in cloud");
+        const token = localStorage.getItem('token');
+
+        if(!token) {
+          setIsSessionExpired(true);
+          return
+        }
+        
+        const response = await axios.delete(
+          backendRoutes.cart.deleteCart,
+          {headers: {
+            Authorization: `Bearer ${token}`
+          }}
+        )
+
+        if(response.status === 401){
+          setIsSessionExpired(true);
+          return
+        }
+
+        
+    } catch (error) {
+      console.log("Error Deleting Cart", error);
+    }
+  }
+
   return (
     <div className="cartItemCard">  
+        {isSessionExpired && <SessionExpired/>}
       <div className="product">
         <div className="imgFrame">
-            <img src="" alt="" />
+            <img src={uri} alt="" />
         </div>
         <div className="fragDetails">
             <p>{productName}</p>
@@ -77,7 +119,10 @@ const CartItemCard = ({item}) => {
         <p>₱ {price}</p>
         <Options quantity={quantity} onIncrement={handleIncrement} onDecrement={handleDecrement}/>
         <p>₱ {amount}</p>
-        <button className="action">Delete</button>
+        <div className="buttons">
+          <button onClick={{}} className="action gold">View</button>
+          <button onClick={handleDeleteItem} className="action">Delete</button>
+        </div>
       </div>
     </div>
   )
@@ -89,7 +134,9 @@ CartItemCard.propTypes = {
     productName: assignTypes.string,
     size: assignTypes.string,
     price: assignTypes.number,
-    quantity: assignTypes.number
+    quantity: assignTypes.number,
+    brand: assignTypes.string,
+    imageOf: assignTypes.string
   })
 }
 
@@ -99,6 +146,38 @@ const CartItems = () => {
     const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
+    const [isSessionExpired, setIsSessionExpired] = useState(false);
+
+    const totalAmount = cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+    const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+    const reformatCartForRequest = () => {
+
+      const formatCart = cart.map((item) => {
+
+        let id = '';
+
+        //check if productId is populated or not
+        if(typeof(item.productId) === 'object') {
+          // console.log("productId is an object: ", JSON.stringify(item.productId._id, null, 2));
+          id = item.productId._id;
+        } else {
+          // console.log("not an object", JSON.stringify(item.productId, null, 2))
+          id = item.productId
+        }
+
+        return{
+          productId: id, //two data different format, object and a string due to populate in backend
+          quantity: item.quantity,
+          price: item.price,
+          amount: item.price * item.quantity,
+          status: "Pending"
+        }
+      })
+
+      return formatCart;
+
+    }
 
 
     const getCart = async (token) => {
@@ -111,6 +190,12 @@ const CartItems = () => {
             Authorization : `Bearer ${token}`
           }}
         )
+
+        
+        if(response.status === 401){
+          setIsSessionExpired(true);
+          return
+        }
 
         if(!response.data) {
           console.log("Error Fetching Cart");
@@ -135,6 +220,10 @@ const CartItems = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem('token');
+        if(!token) {
+          setIsSessionExpired(true);
+          return
+        }
 
         if(cart.length === 0) { 
           console.log("Cart is Empty")
@@ -143,27 +232,9 @@ const CartItems = () => {
         }
 
         console.log("Updating Cart")
-        const formatCart = cart.map((item) => {
+       
+        const formatCart = reformatCartForRequest();
 
-          let id = '';
-
-          //check if productId is populated or not
-          if(typeof(item.productId) === 'object') {
-            // console.log("productId is an object: ", JSON.stringify(item.productId._id, null, 2));
-            id = item.productId._id;
-          } else {
-            // console.log("not an object", JSON.stringify(item.productId, null, 2))
-            id = item.productId
-          }
-          
-          return{
-            productId: id, //two data different format, object and a string due to populate in backend
-            quantity: item.quantity,
-            price: item.price,
-            amount: item.price * item.quantity
-          }
-        })
-      
         const response = await axios.patch(
           backendRoutes.cart.updateAndGetCart,
           {cart: formatCart},
@@ -171,6 +242,12 @@ const CartItems = () => {
             Authorization: `Bearer ${token}`
           }}
         )
+
+        
+        if(response.status === 401){
+          setIsSessionExpired(true);
+          return
+        }
 
         if(!response.data) {
           console.log("Error Fetching Cart");
@@ -196,6 +273,61 @@ const CartItems = () => {
         updateCart();
     },[])
 
+
+    const handleCheckout = async () => {
+      try {
+          setLoading(true);
+          console.log("Checking Out");
+          const token = localStorage.getItem('token');
+          if(!token) {
+            setIsSessionExpired(true);
+            return
+          }
+
+          const formatCart = reformatCartForRequest();
+
+          if (!Array.isArray(formatCart)) {
+            console.log("Items is not an array");
+            return; 
+          }
+    
+          console.log("Order Data: ", JSON.stringify(formatCart, null, 2));
+    
+          const response = await axios.post(
+            backendRoutes.order.createOrder,
+            formatCart,
+            {headers: {
+              Authorization: `Bearer ${token}`
+            }}
+          )
+
+          
+          if(response.status === 401){
+            setIsSessionExpired(true);
+            return
+          }
+
+          if(!response.data){
+            console.log("Failed Fetching Data");
+            return
+          }
+    
+          await axios.delete(
+            backendRoutes.cart.deleteCart,
+            {headers: {
+              Authorization: `Bearer ${token}`
+            }}
+          )
+
+          dispatch(updateWholeCart([]));
+          // window.location.reload();
+          
+      } catch (error) {
+        console.log("Error Checking Out", error)
+      } finally {
+        setLoading(false)
+      }
+    }
   
 
   if(loading) {
@@ -207,6 +339,7 @@ const CartItems = () => {
 
   return (
     <div className="container cart">
+        {isSessionExpired && <SessionExpired/>}
         <Divider title="Cart"/>
         <CartTab/>
         <div className="cartContainer">
@@ -219,13 +352,31 @@ const CartItems = () => {
                   price: item.price,
                   quantity: item.quantity,
                   productName: item.productId.productName,
-                  size: item.productId.size
+                  size: item.productId.size,
+                  brand: item.productId.brand,
+                  imageOf: item.productId.imageOf
                 }}/>
               ))
             )}
-           
         </div>
-       
+        <div className="bottomTab">
+          <div className="total">
+            <h2>Total</h2>
+          </div>
+          <div className="checkoutDetails">
+            <div className="details">
+              <div className="left">
+                <p><strong>Item:</strong></p>
+                <p><strong>Amount:</strong></p>
+              </div>
+              <div className="right">
+                <p><strong>{totalQuantity}</strong></p>
+                <p><strong>₱ {totalAmount}</strong></p>
+              </div>
+            </div>
+            <button onClick={handleCheckout}>CHECKOUT</button>
+          </div>
+        </div>
     </div>
   )
 }
