@@ -63,7 +63,7 @@ const updateSalesStatus = async (req, res, next) => {
 
         const {
             status,
-            orderId,
+            orderId
         } = req.body;
 
         const {id: salesId} = req.params;
@@ -71,7 +71,7 @@ const updateSalesStatus = async (req, res, next) => {
         const {userId: id} = req;
 
 
-        if(!orderId || !status || !salesId) {
+        if(!status || !salesId) {
             return res.status(400).json({
                 code: 'USS_001',
                 message: "Invalid Fields for Update Sales"
@@ -89,22 +89,6 @@ const updateSalesStatus = async (req, res, next) => {
 
         // session.startTransaction(); uncomment this if deploy
 
-        const orderResult = await Order.findByIdAndUpdate(
-            orderId,
-            {status},
-            {new: true}
-            // {new: true, session} uncomment this if deploy
-        )
-
-           // Check if order update was successful, if not, abort the transaction
-        if (!orderResult) {
-            // await session.abortTransaction(); // Abort the transaction uncomment this if deploy
-            return res.status(404).json({
-                code: 'USS_003',
-                message: "Order Not Found"
-            });
-        }
-
         const salesResult = await Sales.findOneAndUpdate(
             {_id: salesId, sellerId: id},
             {status},
@@ -116,11 +100,30 @@ const updateSalesStatus = async (req, res, next) => {
               // If either update fails, abort transaction / updates
             // await session.abortTransaction(); uncomment this if deploy
             return res.status(404).json({
-                code: 'USS_004',
+                code: 'USS_005',
                 message: "Sales Not Found"
             })
         }
+        
+        console.log("sales: ", JSON.stringify(salesResult));
 
+        const orderResult = await Order.findByIdAndUpdate(
+            orderId,
+            {status},
+            {new: true}
+            // {new: true, session} uncomment this if deploy
+        )
+
+           // Check if order update was successful, if not, abort the transaction
+        if (!orderResult) {
+            // await session.abortTransaction(); // Abort the transaction uncomment this if deploy
+            return res.status(404).json({
+                code: 'USS_004',
+                message: "Order Not Found"
+            });
+        }
+
+ 
         // Commit transaction if both updates are successful
         // await session.commitTransaction(); uncomment this if deploy 
 
@@ -134,7 +137,7 @@ const updateSalesStatus = async (req, res, next) => {
         if(!weeklyResult) {
             // if(triggerSession) await session.abortTransaction();  // Abort if updating weekly revenue fails
             return res.status(500).json({
-                code: 'UOS_005',
+                code: 'UOS_006',
                 message: "Failed to Update Weekly Revenue Count",
             });
         }
