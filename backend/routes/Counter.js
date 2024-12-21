@@ -5,7 +5,7 @@ const userAuthentication = require("../middleware/userAuthentication");
 module.exports = (router) => {
 
     //authentication
-    router.use('/user', userAuthentication);
+    // router.use('/user', userAuthentication);
 
 
     //protected Routes
