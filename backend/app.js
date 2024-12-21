@@ -17,13 +17,12 @@ connectToDatabase();
 checkEnvVariables();
 
 const app = express();
-app.use(express.json());// Parse JSON payloads
 app.use(cors({
     origin: [configuration.globalOrigin, configuration.localOrigin], // frontend domains
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
     credentials: true // for authorization headers
 }));// Enable CORS
-
+app.use(express.json());// Parse JSON payloads
 // Root route
 app.get('/', (req, res) => res.json("Essence Shop Backend"));
 
