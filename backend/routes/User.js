@@ -3,6 +3,7 @@ const emailValidation = require('../middleware/emailValidation');
 const userAuthentication = require('../middleware/userAuthentication');
 
 module.exports = (router) => {
+    
     router.post('/register', emailValidation, userController.register);
     router.post('/login', userController.login);
 

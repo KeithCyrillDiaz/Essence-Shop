@@ -19,9 +19,11 @@ checkEnvVariables();
 const app = express();
 
 app.use(cors({
-    credentials: true // for authorization headers
+    origin: [configuration.globalOrigin, configuration.localOrigin], // frontend domains
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
+    credentials: true, // for authorization headers
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
 }));// Enable CORS
-
 app.use(express.json());// Parse JSON payloads
 // Root route
 app.get('/', (req, res) => res.json("Essence Shop Backend"));
