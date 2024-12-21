@@ -4,8 +4,8 @@ const BASED_URL = `${import.meta.env.VITE_BACKEND_URL}/EssenceShop`;
 
 const backendRoutes = {
     user: {
-        register: `${BASED_URL}/user/register`,
-        login: `${BASED_URL}/user/login`,
+        register: `${BASED_URL}/register`,
+        login: `${BASED_URL}/login`,
         updateStatus: `${BASED_URL}/user/updateStatus`,
         getUserDetails: `${BASED_URL}/user/getUserProfile`,
     },
