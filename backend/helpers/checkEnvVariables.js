@@ -10,7 +10,9 @@ const requiredEnvVariables = [
     'JWT_SECRET_ADMIN',
     'SECRET_KEY',
     'ADMIN_PASS',
-    'ADMIN_USER'
+    'ADMIN_USER',
+    'LOCAL_ORIGIN',
+    'GLOBAL_ORIGIN'
 ];
 
 const checkEnvVariables = () => {

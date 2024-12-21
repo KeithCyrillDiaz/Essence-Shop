@@ -9,6 +9,9 @@ const configuration = {
     admin_pass: process.env.ADMIN_PASS,
     admin_user: process.env.ADMIN_USER,
     secretKey: process.env.SECRET_KEY,
+    localOrigin: process.env.LOCAL_ORIGIN,
+    globalOrigin: process.env.GLOBAL_ORIGIN
 }
+
 
 module.exports = configuration;

@@ -19,7 +19,9 @@ checkEnvVariables();
 const app = express();
 app.use(express.json());// Parse JSON payloads
 app.use(cors({
-    credentials: true // If you are using cookies or authorization headers
+    origin: [configuration.globalOrigin, configuration.localOrigin], // frontend domains
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
+    credentials: true // for authorization headers
 }));// Enable CORS
 
 // Root route
