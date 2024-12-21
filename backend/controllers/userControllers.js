@@ -55,7 +55,7 @@ const register = async (req, res, next) => {
         }
 
         // password encryption
-        const hashPassword = await bcrypt.hash(password, 17);
+        const hashPassword = await bcrypt.hash(password, 10);
 
         // Create a new user
         const newUser = new User({
