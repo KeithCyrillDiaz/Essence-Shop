@@ -31,18 +31,4 @@ productSchema.index({rating: 1, totalRating: 1});
 
 const Product = mongoose.model('Product', productSchema);
 
-const checkIndexes = async () => {
-  try {
-    const indexes = await Product.collection.getIndexes();
-    if(!indexes) {
-      logger.Error("Indexes not found");
-    }
-    // console.log('Indexes:', indexes);
-  } catch (error) {
-    logger.Error(`Error checking indexes: ${error}`);
-  }
-}
-
-checkIndexes();
-
 module.exports = Product;
