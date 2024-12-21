@@ -10,8 +10,8 @@ const backendRoutes = {
         getUserDetails: `${BASED_URL}/user/getUserProfile`,
     },
     products: {
-        getBestSellers: `${BASED_URL}/user/products/getBestSellers`,
-        getAllproducts: `${BASED_URL}/user/products/getAllProducts`
+        getBestSellers: `${BASED_URL}d/products/getBestSellers`,
+        getAllproducts: `${BASED_URL}/products/getAllProducts`
     },
 
     admin: {
