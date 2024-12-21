@@ -4,7 +4,7 @@ const configuration = require('./dotenv')
 const mongoose = require('mongoose');
 
 const connectToDatabase = async () => {
-    const URI = configuration.MongoDB_URL_Local;
+    const URI = configuration.MongoDB_URL_Atlas;
     try {
       await mongoose.connect(URI, {
         useNewUrlParser: true,
