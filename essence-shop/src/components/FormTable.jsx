@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import assignTypes from "../constant/PropTypes";
 import FormDivider from "./FormDivider";
 import HistoryItemCard from "./HistoryItemCard";
@@ -28,9 +28,12 @@ FormTab.propTypes = {
 }
 
 const FormTable = ({ title, data }) => {
+  
     
     const [selected, setSelected] = useState("Completed");
-   const [selectedData, setSelectedData] = useState(data.complete);
+   const [selectedData, setSelectedData] = useState([...data.complete]);
+  
+  console.log('selectedData', JSON.stringify(selectedData, null, 2));
   
     const handleTabButtonClicked = (button) => {
       setSelected(button);
@@ -38,7 +41,7 @@ const FormTable = ({ title, data }) => {
       setSelectedData(data);
     };
 
-    const getSelectedData = (label) => {
+    const getSelectedData = useCallback( (label) => {
         switch (label) {
           case "Return/Refund":
             return data.refund;
@@ -51,7 +54,12 @@ const FormTable = ({ title, data }) => {
           default:
             return [];
         }
-      };
+    },[data])
+
+      useEffect(() => {
+        const data = getSelectedData("Completed");
+        setSelectedData(data);
+      },[getSelectedData])
 
     return (
       <div className="orderHistory">

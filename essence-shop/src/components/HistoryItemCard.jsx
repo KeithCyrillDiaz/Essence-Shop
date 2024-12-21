@@ -9,12 +9,39 @@ import Loader from './Loader';
 
 const HistoryItemCard = ({item, selected, formTitle}) => {
 
-    const {productId, price, quantity, receiptId} = item;
+    const {productId, price, quantity, receiptId, orderId, _id: salesId} = item;
     const [loading, setLoading] = useState(false);
 
-    const {_id, brand, imageOf } = productId;
+    const {_id, brand, imageOf} = productId
 
     const uri = Perfumes?.[brand]?.[imageOf];
+
+    const handleShipItem = async () => {
+        try {
+            console.log("Shipping Item");
+            const token = localStorage.getItem('token');
+            const response = await axios.patch(
+                `${backendRoutes.sales.updateSalesStatus}${salesId}`,
+                {status: "Completed", orderId: orderId._id},
+                {headers: {
+                    Authorization: `Bearer ${token}`
+                }}
+            )
+
+            if(!response.data) {
+                console.log("Failed updating Sales History");
+                return;
+            }
+
+            // Reload the page
+            window.location.reload();  
+
+        } catch (error) {
+            console.error("Error updating Sales Status", error)
+        } finally {
+            setLoading(false)
+        }
+    }
 
     const handleCancelButton = async (status) => {
         try {
@@ -52,6 +79,8 @@ const HistoryItemCard = ({item, selected, formTitle}) => {
         }
     }
 
+
+
     if(loading) {
         return <Loader/>
     }
@@ -81,7 +110,7 @@ const HistoryItemCard = ({item, selected, formTitle}) => {
                {selected === "Pending" && (
                  <div className="buttons">
                     <button className='rate' onClick={() => handleCancelButton("cancel")}>Cancel</button>
-                   {formTitle !== 'order' &&  <button className='buyAgain' onClick={() => handleCancelButton("shipped")}>Shipped</button>}
+                   {formTitle !== 'order' &&  <button className='buyAgain' onClick={() => handleShipItem()}>Shipped</button>}
                 </div>
                )}
             </div>
@@ -97,14 +126,17 @@ HistoryItemCard.propTypes = {
             size: assignTypes.string,
             brand: assignTypes.string,
             imageOf: assignTypes.string,
-            orderId: assignTypes.string
         }),
         price: assignTypes.number,
         quantity: assignTypes.number,
-        receiptId: assignTypes.string
+        receiptId: assignTypes.string,
+        _id: assignTypes.string,
+        orderId: PropTypes.shape({
+            _id: assignTypes.string,
+        })
     }),
     selected: assignTypes.string,
-    formTitle: assignTypes.string
+    formTitle: assignTypes.string,
 }
 
 export default HistoryItemCard

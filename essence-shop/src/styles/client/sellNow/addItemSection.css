@@ -1,0 +1,83 @@
+
+
+
+.addItemSection {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    color: black;
+    width: 100%;
+    background-color: var(--essence-offWhite);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    padding: 20px 0;
+}
+
+.addItemSection form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+}
+
+.addItemSection form .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.addItemSection form .row p {
+    width: 100%;
+}
+
+.addItemSection form .row select {
+    width: 143%;
+}
+
+
+.addItemSection form .buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.addItemSection form .buttons button {
+    background-color: var(--essence-red);
+    padding: 5px 20px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.addItemSection form .buttons .whiteButton {
+    background-color: var(--essence-offWhite);
+    border: 1px solid var(--essence-red);
+    color: black;
+}
+
+
+.addItemSection .notes {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.addItemSection .boxNotes {
+    background-color: var(--essence-offWhite);
+    border: 2px solid var(--essence-red);
+    border-radius: 7px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 70px;
+}
+
+.addItemSection .boxNotes p {
+    font-size: 14px;
+
+}

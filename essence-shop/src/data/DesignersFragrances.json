@@ -1,0 +1,650 @@
+[
+  {
+    "Brands": [ "Chanel", "Dior", "YSL", "Armani", "Paco Rabanne", "Burberry", "Versace" ]
+  },
+  {
+    "Chanel" : [
+        {
+            "brand": "Chanel",
+            "name": "Coco Mademoiselle",
+            "topNotes": ["Orange", "Mandarin Orange", "Bergamot", "Orange Blossom"],
+            "middleNotes": ["Turkish Rose", "Jasmine", "Lily of the Valley", "Ylang-Ylang"],
+            "baseNotes": ["Patchouli", "Musk", "Vanilla", "Tonka Bean", "Orris Root"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Chanel",
+            "name": "Bleu de Chanel",
+            "topNotes": ["Lemon", "Peppermint", "Pink Pepper", "Grapefruit"],
+            "middleNotes": ["Jasmine", "Iso E Super", "Nutmeg", "Ginger"],
+            "baseNotes": ["Sandalwood", "Cedar", "Amber", "Musk"],
+            "longevity": "6 - 10 hours",
+            "projection": "Moderate to Strong",
+            "occasion": ["Daytime", "Versatile"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Fresh & Clean", "Woody & Earthy"]
+        },
+        {
+            "brand": "Chanel",
+            "name": "Allure Homme Sport",
+            "topNotes": ["Orange", "Sea Notes", "Cedar", "Mandarin Orange"],
+            "middleNotes": ["Black Pepper", "Aldehydes", "Nutmeg", "Spicy Notes"],
+            "baseNotes": ["Tonka Bean", "White Musk", "Cedarwood", "Vanilla"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate",
+            "occasion": ["Sporty", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Fresh & Clean", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Chanel",
+            "name": "Chance Eau Tendre",
+            "topNotes": ["Grapefruit", "Quince", "Pineapple"],
+            "middleNotes": ["Jasmine", "Hyacinth", "Iris"],
+            "baseNotes": ["Musk", "Cedarwood", "Amber"],
+            "longevity": "4 - 6 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral"]
+        },
+        {
+            "brand": "Chanel",
+            "name": "Chanel No. 5",
+            "topNotes": ["Aldehydes", "Neroli", "Ylang-Ylang"],
+            "middleNotes": ["Rose", "Jasmine", "Iris", "Lily of the Valley"],
+            "baseNotes": ["Sandalwood", "Vetiver", "Vanilla", "Patchouli"],
+            "longevity": "12 - 24 hours",
+            "projection": "Strong",
+            "occasion": ["Formal", "Evening"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Woody & Earthy"]
+        },
+        {
+            "brand": "Chanel",
+            "name": "Les Exclusifs de Chanel 1957",
+            "topNotes": ["Bergamot", "Lemon", "Pink Pepper", "Clary Sage"],
+            "middleNotes": ["Iris", "Cedarwood", "Tuberose", "Jasmine"],
+            "baseNotes": ["Musk", "Patchouli", "Vanilla", "Amber", "Leather"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Chanel",
+            "name": "Allure Homme",
+            "topNotes": ["Lemon", "Mandarin", "Bergamot", "Peach"],
+            "middleNotes": ["Jasmine", "Rose", "Spicy Notes", "Vanilla"],
+            "baseNotes": ["Sandalwood", "Patchouli", "Tonka Bean", "Musk"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        }
+    ]
+  },
+  
+  {
+    "Dior": [
+        {
+            "brand": "Dior",
+            "name": "Fahrenheit",
+            "topNotes": ["Mandarin", "Lemon", "Nutmeg", "Lavender"],
+            "middleNotes": ["Coriander", "Sandalwood", "Nutmeg", "Honeysuckle"],
+            "baseNotes": ["Leather", "Tonka Bean", "Amber", "Patchouli"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"]
+        },
+        {
+            "brand": "Dior",
+            "name": "J'adore",
+            "topNotes": ["Ylang-Ylang", "Jasmine", "Mandarin Orange"],
+            "middleNotes": ["Rose", "Orchid", "Violet"],
+            "baseNotes": ["Musk", "Sandalwood", "Vanilla", "Amber"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Dior",
+            "name": "Sauvage",
+            "topNotes": ["Calabrian Bergamot", "Pepper"],
+            "middleNotes": ["Lavender", "Pink Pepper", "Patchouli", "Geranium"],
+            "baseNotes": ["Ambroxan", "Cedarwood", "Vetiver"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate to Strong",
+            "occasion": ["Versatile", "Daytime"],
+            "bestFor": ["Summer", "Spring"],
+            "gender": "Male",
+            "scentProfile": ["Fresh & Clean", "Oriental & Spicy"]
+        },
+        {
+            "brand": "Dior",
+            "name": "Dior Homme Intense",
+            "topNotes": ["Iris", "Amber", "Leather"],
+            "middleNotes": ["Cocoa", "Cedarwood"],
+            "baseNotes": ["Vetiver", "Tonka Bean", "Sandalwood"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"]
+        },
+        {
+            "brand": "Dior",
+            "name": "Fahrenheit Le Parfum",
+            "topNotes": ["Mandarin", "Citrus", "Bergamot"],
+            "middleNotes": ["Leather", "Cinnamon", "Rose"],
+            "baseNotes": ["Vanilla", "Tonka Bean", "Amber"],
+            "longevity": "8 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy", "Sweet & Gourmand"]
+        }
+    ]
+  },
+  
+  {
+    "YSL": [
+        {
+            "brand": "YSL",
+            "name": "La Nuit de L'Homme",
+            "topNotes": ["Cardamom", "Bergamot", "Cedar"],
+            "middleNotes": ["Lavender", "Sichuan Pepper", "Caraway"],
+            "baseNotes": ["Vetiver", "Cedarwood", "Tonka Bean", "Amber"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Oriental & Spicy"]
+        },
+        {
+            "brand": "YSL",
+            "name": "Black Opium",
+            "topNotes": ["Pear", "Pink Pepper", "Orange Blossom"],
+            "middleNotes": ["Coffee", "Jasmine", "Bitter Almond"],
+            "baseNotes": ["Vanilla", "Patchouli", "Cedar", "Cashmeran"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate",
+            "occasion": ["Nighttime", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Sweet & Gourmand", "Fruity", "Floral"]
+        },
+        {
+            "brand": "YSL",
+            "name": "L'Homme",
+            "topNotes": ["Ginger", "Bergamot", "Lemon", "White Pepper"],
+            "middleNotes": ["Spices", "Tobacco", "Violet", "Basil"],
+            "baseNotes": ["Cedarwood", "Tonka Bean", "Leather", "Amber"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Spicy"]
+        },
+        {
+            "brand": "YSL",
+            "name": "Libre",
+            "topNotes": ["Lavender", "Mandarin Orange", "Black Currant"],
+            "middleNotes": ["Jasmine", "Orange Blossom", "Vanilla"],
+            "baseNotes": ["Ambergris", "Cedarwood", "Musk"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "YSL",
+            "name": "Y Eau de Parfum",
+            "topNotes": ["Ginger", "Sage", "Apple"],
+            "middleNotes": ["Juniper Berries", "Geranium", "Violet Leaf"],
+            "baseNotes": ["Cedarwood", "Tonka Bean", "Ambergris"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Unisex",
+            "scentProfile": ["Fresh & Clean", "Woody & Earthy"]
+        },
+        {
+            "brand": "YSL",
+            "name": "M7 Oud Absolu",
+            "topNotes": ["Mandarin Orange", "Myrrh"],
+            "middleNotes": ["Oud", "Cistus"],
+            "baseNotes": ["Patchouli", "Amber", "Vanilla"],
+            "longevity": "10 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "YSL",
+            "name": "Mon Paris",
+            "topNotes": ["Strawberry", "Pear", "Raspberry", "Orange Blossom"],
+            "middleNotes": ["Jasmine", "Datura", "Peony"],
+            "baseNotes": ["Patchouli", "Musk", "Amber", "Vanilla"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        }
+    ]
+  },
+  {
+    "Armani": [
+        {
+            "brand": "Armani",
+            "name": "Acqua di Gio Profumo",
+            "topNotes": ["Bergamot", "Aquatic Notes", "Jasmine"],
+            "middleNotes": ["Rosemary", "Sage", "Geranium"],
+            "baseNotes": ["Patchouli", "Incense", "Amber"],
+            "longevity": "8 - 12 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Fresh & Clean", "Woody & Earthy", "Floral"]
+        },
+        {
+            "brand": "Armani",
+            "name": "Si",
+            "topNotes": ["Black Currant", "Mandarin Orange"],
+            "middleNotes": ["Rose", "Freesia", "May Rose"],
+            "baseNotes": ["Patchouli", "Vanilla", "Oakmoss", "Woody Notes"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Armani",
+            "name": "Armani Code",
+            "topNotes": ["Bergamot", "Lemon", "Olive Blossom"],
+            "middleNotes": ["Tonka Bean", "Guaiac Wood", "Cedarwood"],
+            "baseNotes": ["Leather", "Tobacco", "Vanilla"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate to Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Armani",
+            "name": "Armani Code Femme",
+            "topNotes": ["Orange Blossom", "Ginger"],
+            "middleNotes": ["Jasmine", "Orange Flower"],
+            "baseNotes": ["Honey", "Vanilla", "Sandalwood"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Armani",
+            "name": "Emporio Armani Stronger With You Intensely",
+            "topNotes": ["Cardamom", "Pink Pepper", "Violet Leaves"],
+            "middleNotes": ["Cinnamon", "Sage", "Amber"],
+            "baseNotes": ["Vanilla", "Chestnut", "Sugar"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Sweet & Gourmand", "Woody & Earthy"]
+        },
+        {
+            "brand": "Armani",
+            "name": "Emporio Armani In Love With You",
+            "topNotes": ["Sour Cherry", "Raspberry"],
+            "middleNotes": ["Rose", "Jasmine", "Patchouli"],
+            "baseNotes": ["Vanilla", "Tonka Bean", "Almond"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Armani",
+            "name": "Armani Privé Oud Royal",
+            "topNotes": ["Saffron", "Citrus"],
+            "middleNotes": ["Oud", "Rose", "Jasmine"],
+            "baseNotes": ["Leather", "Amber", "Vanilla"],
+            "longevity": "12 - 16 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Floral", "Sweet & Gourmand"]
+        }
+    ]
+  },
+  {
+    "Paco Rabanne": [
+        {
+            "brand": "Paco Rabanne",
+            "name": "1 Million",
+            "topNotes": ["Grapefruit", "Mint", "Blood Orange"],
+            "middleNotes": ["Rose", "Cinnamon", "Spices"],
+            "baseNotes": ["Leather", "Amber", "Patchouli"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Fruity", "Sweet & Gourmand", "Woody & Earthy"]
+        },
+        {
+            "brand": "Paco Rabanne",
+            "name": "Lady Million",
+            "topNotes": ["Bitter Orange", "Raspberry", "Aldehydes"],
+            "middleNotes": ["Jasmine", "Orange Blossom", "African Orange Flower"],
+            "baseNotes": ["Honey", "Patchouli", "Amber"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate to Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Paco Rabanne",
+            "name": "Invictus",
+            "topNotes": ["Grapefruit", "Marine Accord", "Mandarin"],
+            "middleNotes": ["Jasmine", "Bay Leaf", "Guaiac Wood"],
+            "baseNotes": ["Ambergris", "Moss", "Patchouli"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Fruity", "Fresh & Clean", "Woody & Earthy"]
+        },
+        {
+            "brand": "Paco Rabanne",
+            "name": "Olympéa",
+            "topNotes": ["Green Mandarin", "Water Jasmine"],
+            "middleNotes": ["Ginger Lily", "Salt"],
+            "baseNotes": ["Vanilla", "Cashmere Wood", "Ambergris"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Fresh & Clean", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Paco Rabanne",
+            "name": "Paco Rabanne Pure XS",
+            "topNotes": ["Ginger", "Thyme", "Green Notes"],
+            "middleNotes": ["Vanilla", "Cinnamon", "Leather"],
+            "baseNotes": ["Tonka Bean", "Myrrh", "Woodsy Notes"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Paco Rabanne",
+            "name": "Paco Rabanne 1 Million Lucky",
+            "topNotes": ["Plum", "Grapefruit", "Hazelnut"],
+            "middleNotes": ["Honey", "Cedarwood", "Cashmere Wood"],
+            "baseNotes": ["Amberwood", "Oakmoss", "Patchouli"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Fruity", "Sweet & Gourmand", "Woody & Earthy"]
+        },
+        {
+            "brand": "Paco Rabanne",
+            "name": "Paco Rabanne Ultraviolet",
+            "topNotes": ["Mandarin", "Pepper", "Rose"],
+            "middleNotes": ["Jasmine", "Plum", "Violet"],
+            "baseNotes": ["Vanilla", "Amber", "Musk"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Unisex",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        }
+    ]
+  },
+
+  {
+    "Burberry": [
+        {
+            "brand": "Burberry",
+            "name": "Burberry Her",
+            "topNotes": ["Berries", "Cherry", "Plum"],
+            "middleNotes": ["Violet", "Iris", "Jasmine"],
+            "baseNotes": ["Musk", "Amber", "Vanilla"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Autumn"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Burberry",
+            "name": "Burberry London",
+            "topNotes": ["Tangerine", "Cinnamon", "Bergamot"],
+            "middleNotes": ["Lavender", "Cinnamon", "Leather"],
+            "baseNotes": ["Tobacco", "Tonka Bean", "Oakmoss"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Burberry",
+            "name": "Burberry Brit",
+            "topNotes": ["Lime", "Green Almond", "Pear"],
+            "middleNotes": ["Almond", "Sugar", "Cedarwood"],
+            "baseNotes": ["Vanilla", "Amber", "Tonka Bean"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Autumn"],
+            "gender": "Unisex",
+            "scentProfile": ["Fruity", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Burberry",
+            "name": "Burberry Mr. Burberry",
+            "topNotes": ["Grapefruit", "Cardamom", "Basil"],
+            "middleNotes": ["Cedarwood", "Nutmeg", "Violet Leaf"],
+            "baseNotes": ["Vetiver", "Amber", "Tonka Bean"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Fresh & Clean"]
+        },
+        {
+            "brand": "Burberry",
+            "name": "Burberry Her Intense",
+            "topNotes": ["Black Cherry", "Red Fruits", "Bergamot"],
+            "middleNotes": ["Jasmine", "Freesia", "Orange Blossom"],
+            "baseNotes": ["Vanilla", "Musk", "Amber"],
+            "longevity": "8 - 12 hours",
+            "projection": "Moderate to Strong",
+            "occasion": ["Evening", "Casual"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Female",
+            "scentProfile": ["Fruity", "Floral", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Burberry",
+            "name": "Burberry Touch",
+            "topNotes": ["Citrus", "Pepper", "Moss"],
+            "middleNotes": ["Jasmine", "Nutmeg", "Honeysuckle"],
+            "baseNotes": ["Oakmoss", "Vetiver", "White Musk"],
+            "longevity": "4 - 6 hours",
+            "projection": "Light to Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy", "Fresh & Clean"]
+        },
+        {
+            "brand": "Burberry",
+            "name": "Burberry For Men",
+            "topNotes": ["Lavender", "Bergamot", "Thyme"],
+            "middleNotes": ["Geranium", "Pepper", "Bay Leaf"],
+            "baseNotes": ["Sandalwood", "Cedarwood", "Tonka Bean"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Fresh & Clean"]
+        }
+    ]
+    
+  },
+
+  {
+    "Versace": [
+        {
+            "brand": "Versace",
+            "name": "Dylan Blue",
+            "topNotes": ["Calabrian Bergamot", "Grapefruit", "Fig Leaves", "Aquatic Notes"],
+            "middleNotes": ["Violet Leaf", "Papyrus", "Black Pepper", "Patchouli"],
+            "baseNotes": ["Musk", "Tonka Bean", "Saffron", "Incense"],
+            "longevity": "8 - 10 hours",
+            "projection": "Strong",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Fresh & Clean"]
+        },
+        {
+            "brand": "Versace",
+            "name": "Eros",
+            "topNotes": ["Mint", "Green Apple", "Lemon"],
+            "middleNotes": ["Tonka Bean", "Ambroxan", "Geranium"],
+            "baseNotes": ["Vanilla", "Cedarwood", "Sandalwood", "Oakmoss"],
+            "longevity": "8 - 10 hours",
+            "projection": "Moderate to Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Male",
+            "scentProfile": ["Woody & Earthy", "Sweet & Gourmand"]
+        },
+        {
+            "brand": "Versace",
+            "name": "Versace Pour Homme",
+            "topNotes": ["Lemon", "Bergamot", "Rosemary", "Neroli"],
+            "middleNotes": ["Hesperidic Notes", "Clary Sage", "Geranium"],
+            "baseNotes": ["Cedarwood", "Tonka Bean", "Musk", "Amber"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Male",
+            "scentProfile": ["Fresh & Clean"]
+        },
+        {
+            "brand": "Versace",
+            "name": "Bright Crystal",
+            "topNotes": ["Pomegranate", "Yuzu", "Iced Accord"],
+            "middleNotes": ["Peony", "Magnolia", "Lotus"],
+            "baseNotes": ["Musk", "Mahogany", "Amber"],
+            "longevity": "4 - 6 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Fruity"]
+        },
+        {
+            "brand": "Versace",
+            "name": "Versace Bright Crystal Absolu",
+            "topNotes": ["Raspberry", "Yuzu", "Pomegranate"],
+            "middleNotes": ["Peony", "Lotus", "Magnolia"],
+            "baseNotes": ["Musk", "Amber", "Praline"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Fruity"]
+        },
+        {
+            "brand": "Versace",
+            "name": "Versace Pour Femme Dylan Blue",
+            "topNotes": ["Blackcurrant", "Apple", "Shisandra"],
+            "middleNotes": ["Jasmine", "Freesia", "Tulip"],
+            "baseNotes": ["Musk", "Woodsy Notes", "Patchouli"],
+            "longevity": "6 - 8 hours",
+            "projection": "Moderate",
+            "occasion": ["Daytime", "Casual"],
+            "bestFor": ["Spring", "Summer"],
+            "gender": "Female",
+            "scentProfile": ["Floral", "Fresh & Clean"]
+        },
+        {
+            "brand": "Versace",
+            "name": "Versace Oud Noir",
+            "topNotes": ["Bitter Orange", "Bergamot", "Spices"],
+            "middleNotes": ["Oud", "Leather", "Saffron", "Patchouli"],
+            "baseNotes": ["Amber", "Vanilla", "Musk"],
+            "longevity": "12 - 14 hours",
+            "projection": "Strong",
+            "occasion": ["Evening", "Formal"],
+            "bestFor": ["Autumn", "Winter"],
+            "gender": "Unisex",
+            "scentProfile": ["Woody & Earthy"]
+        }
+    ]
+  
+  }
+]

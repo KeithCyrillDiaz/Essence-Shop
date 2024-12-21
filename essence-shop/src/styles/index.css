@@ -10,6 +10,7 @@
 @import url('./profile/profile.css');
 @import url('./historyItemCard.css');
 @import url('./client/cart.css');
+@import url('./client/sellNow/addItemSection.css');
 
 .container {
     margin: 0 100px;

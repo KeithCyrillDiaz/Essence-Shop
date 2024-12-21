@@ -1,13 +1,20 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, addOrderItem, updateQuantity } from '../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 const useCart = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const cart = useSelector(state => state.cart);
 
     const handleAddToCart = (item) => {
         if(!item) return
+        const token = localStorage.getItem('token');
+        if(!token) {
+            navigate('/login');
+            return
+        }
     
         const checkIfItemExist = cart.find((product) => product.productId._id === item._id)
 
@@ -31,6 +38,13 @@ const useCart = () => {
 
     const handleBuyNow = (item) => {
         if(!item) return
+
+        const token = localStorage.getItem('token');
+        if(!token) {
+            navigate('/login');
+            return
+        }
+        
         item.dummyId = Date.now();
         item.placeOrder = true
         dispatch(addOrderItem(item));

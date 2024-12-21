@@ -18,12 +18,8 @@ const BestSellers = () => {
     const fetchData = async () => {
         try {
             console.log("Fetching Best Sellers");
-            const token = localStorage.getItem('token');
             const response = await axios.get(
                 backendRoutes.products.getBestSellers,
-                {headers: {
-                    Authorization: `Bearer ${token}`
-                }}
             )
 
             if (!response.data || !response.data.data) {

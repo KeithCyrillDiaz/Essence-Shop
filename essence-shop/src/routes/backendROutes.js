@@ -10,15 +10,18 @@ const backendRoutes = {
         getUserDetails: `${BASED_URL}/user/getUserProfile`,
     },
     products: {
-        getBestSellers: `${BASED_URL}d/products/getBestSellers`,
-        getAllproducts: `${BASED_URL}/products/getAllProducts`
+        getInventoryProducts: `${BASED_URL}/user/products/get`,
+        getBestSellers: `${BASED_URL}/products/getBestSellers`,
+        getAllproducts: `${BASED_URL}/products/getAllProducts`,
+        addProduct: `${BASED_URL}/user/products/create`
     },
 
     admin: {
         userCount: `${BASED_URL}/count/user`
     },
     sales: {
-        getSalesHistory: `${BASED_URL}/user/sales/get`
+        getSalesHistory: `${BASED_URL}/user/sales/get`,
+        updateSalesStatus: `${BASED_URL}/user/sales/updateStatus/`
     },
     order: {
         getOrderHistory: `${BASED_URL}/user/order/get`,

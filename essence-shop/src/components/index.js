@@ -17,6 +17,8 @@ import FormTable from "./FormTable";
 import Loader from "./Loader";
 import SessionExpired from "./client/SessionExpired";
 import CartItems from "./client/CartItems";
+import ProtectedRoute from "../pages/client/ProtectedRoute";
+import AddItemSection from "./client/sellNow/AddItemSection";
 
 export {
     Divider,
@@ -37,5 +39,7 @@ export {
     FormTable,
     Loader,
     CartItems,
-    SessionExpired
+    SessionExpired,
+    ProtectedRoute,
+    AddItemSection
 }

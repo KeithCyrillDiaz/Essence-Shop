@@ -5,7 +5,7 @@ import { Perfumes } from "../assets";
 import useCart from "../hook/useCart";
 
 
-const ItemCard = ({item}) => {
+const ItemCard = ({item, disabled}) => {
     const {productName, tags, price, imageOf, brand} = item;
     const uri = Perfumes?.[brand]?.[imageOf];
 
@@ -33,8 +33,8 @@ const ItemCard = ({item}) => {
                 </div>
             </div>   
             <h3 className="price">₱ {price}</h3>
-            <button className="addButton" onClick={() => handleAddToCart(item)}>Add to Cart</button>
-            <button className="buyButton" onClick={() => handleBuyNow(item)}>Buy Now</button>
+            <button disabled={disabled} className="addButton" onClick={() => handleAddToCart(item)}>Add to Cart</button>
+            <button disabled={disabled} className="buyButton" onClick={() => handleBuyNow(item)}>Buy Now</button>
         </div>
     )
 }
@@ -47,8 +47,7 @@ ItemCard.propTypes = {
         imageOf: assignTypes.string,
         brand: assignTypes.string,
     }).isRequired,
-    handleAddToCart: assignTypes.function,
-    handleBuyNow: assignTypes.function
+    disabled: assignTypes.boolean
 }
 
 export default ItemCard

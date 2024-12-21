@@ -91,7 +91,7 @@ const NavigationBarPopUp = ({onClickProfile, onClickSellNow, visible}) => {
 NavigationBarPopUp.propTypes = {
   onClickProfile: assignTypes.function,
   onClickSellNow: assignTypes.function,
-  visible: assignTypes.bool
+  visible: assignTypes.boolean
 }
 
 
@@ -118,19 +118,18 @@ const NavigationBar = ({currentPage}) => {
         setShowSessionExpired(true);
         return;
       }
-      navigation(`/profile/${id}`);
+      navigation(`/profile`);
     }
 
 
     const handleNavigateCart = () => {
       const token = localStorage.getItem('token');
-      const id = localStorage.getItem('id');
       if(!token) {
         navigation('/register');
         return;
       }
 
-      navigation(`/Cart/${id}`);
+      navigation(`/Cart`);
     }
   return (
     <div className="navigationBarContainer">
