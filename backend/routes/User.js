@@ -1,3 +1,4 @@
+const { getAllproducts, getBestSellers } = require('../controllers/productController');
 const userController = require('../controllers/userControllers');
 const emailValidation = require('../middleware/emailValidation');
 const userAuthentication = require('../middleware/userAuthentication');
@@ -6,6 +7,8 @@ module.exports = (router) => {
     
     router.post('/register', emailValidation, userController.register);
     router.post('/login', userController.login);
+
+    
 
     router.use('/user', userAuthentication);// apply authentication on '/user' and the routes below gets affected
    
