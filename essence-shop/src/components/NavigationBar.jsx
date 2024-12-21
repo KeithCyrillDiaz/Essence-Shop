@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import assignTypes from '../constant/PropTypes';
 import { SearchIcon, ShoppingCartIcon } from './icons';
-import SessionExpired from './sessionExpired';
+import { SessionExpired } from '.';
 
 
 
