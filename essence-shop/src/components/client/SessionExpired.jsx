@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Modal } from ".";
+import { Modal } from "..";
 
 const SessionExpired = () => {
     const navigation = useNavigate();

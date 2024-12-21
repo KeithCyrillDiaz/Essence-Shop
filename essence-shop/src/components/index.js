@@ -15,7 +15,7 @@ import HistoryItemCard from "./HistoryItemCard";
 import ProfleContents from "./client/Profile/ProfleContents";
 import FormTable from "./FormTable";
 import Loader from "./Loader";
-import SessionExpired from "./sessionExpired";
+import SessionExpired from "./client/SessionExpired";
 import CartItems from "./client/CartItems";
 
 export {
@@ -36,6 +36,6 @@ export {
     ProfleContents,
     FormTable,
     Loader,
-    SessionExpired,
-    CartItems
+    CartItems,
+    SessionExpired
 }
