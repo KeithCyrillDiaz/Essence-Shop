@@ -123,6 +123,18 @@ const login = async (req, res, next) => {
 
         const fullName = `${existingUser.firstName} ${existingUser.lastName}`
 
+
+        existingUser.status = "Online";
+        const userResult = await existingUser.save();
+
+        if(!userResult) {
+            logger.Error("Failed to update status");
+            return res.status(500).json({
+                code:'LOG_003',
+                message: "Failed to Update Status"
+            })
+        }
+
         logger.Success(`${fullName} Log in successfully `);
 
         return res.status(200).json({
@@ -353,6 +365,46 @@ const  updateUserStatus = async (req, res, next) => {
     }
 }
 
+const updateUserAddress = async (req, res, next) => {
+    try {   
+        logger.Event("Update User Address Started");
+        const {userId} = req;
+
+        const {address} = req.body;
+
+        if(!address || typeof address !== 'string') {
+            return res.status(400).json({
+                code: 'UUA_001',
+                message: "Failed Updating Address"
+            })
+        }
+
+        const result = await User.findByIdAndUpdate(
+            userId,
+            {address},
+            {new: true}
+        )
+
+        if(!result) {
+            return res.status(404).json({
+                code: 'UUA_002',
+                message: "User not Found"
+            })
+        }
+
+        logger.Success("Successfully Updated Address");
+
+        return res.status(200).json({
+            code: "UUA_000",
+            message: "Successfully Updated Address",
+            address: result.address 
+        })
+        
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 module.exports = { 
     register,
@@ -361,5 +413,6 @@ module.exports = {
     updatePassword,
     deleteUser,
     fetchUser,
-    updateUserStatus
+    updateUserStatus,
+    updateUserAddress
 };

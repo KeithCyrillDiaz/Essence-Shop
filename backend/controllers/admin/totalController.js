@@ -11,13 +11,7 @@ const getTotal = async (req, res, next) => {
 
         logger.Event("Get Total Started");
 
-        const totalUser = await MonthlyUserCount.aggregate([
-            {$unwind: "$weeklyUserCounts"},
-            {$group: {
-                _id: null,
-                total: {$sum: "$weeklyUserCounts.userCount"}
-            }}
-        ])
+        const totalUser = await User.countDocuments();
 
         const totalRevenue = await MonthlyRevenueCount.aggregate([
             {$unwind: "$weeklyRevenueCounts"},
@@ -41,11 +35,13 @@ const getTotal = async (req, res, next) => {
             code: 'GTL_000',
             message: "Successfully Retrieve totals",
             data: {
-                user: totalUser[0]?.total ?? 0,
-                revenue: totalRevenue[0]?.total ?? 0,
-                product: totalProducts ?? 0,
-                order: totalOrders ?? 0,
-                seller: totalSellers ?? 0
+                Users: totalUser ?? 0,
+                Sellers: totalSellers ?? 0,
+                Revenue: totalRevenue[0]?.total ?? 0,
+                Orders: totalOrders ?? 0,
+                Products: totalProducts ?? 0,
+             
+               
             }
         })
        

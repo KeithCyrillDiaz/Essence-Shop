@@ -18,10 +18,11 @@ module.exports = (router) => {
     //get
     router.get('/user/getUserProfile', userController.fetchUser);
 
-    //updated
+    //updates
     router.patch('/user/update', userController.updateUserDetails);
     router.patch('/user/updatePassword', userController.updatePassword);
-    router.patch('/user/updateStatus', userController.updateUserStatus)
+    router.patch('/user/updateStatus', userController.updateUserStatus);
+    router.patch('/user/updateAddress', userController.updateUserAddress);
 
 
     router.delete('/user/delete', userController.deleteUser);

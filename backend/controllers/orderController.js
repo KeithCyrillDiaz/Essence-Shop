@@ -81,6 +81,7 @@ const createOrder = async (req, res, next) => {
         const receiptId = new mongoose.Types.ObjectId();
         
         const products = [];
+        const orderQuantities = [];
         for (const order of orders) {
             const { productId, status, quantity, price} = order;
             if (!productId || !status || !quantity || !price) {
@@ -100,6 +101,11 @@ const createOrder = async (req, res, next) => {
             //concatenate Id's
             order.userId = buyerId;
             order.receiptId = receiptId;
+
+            orderQuantities.push({
+                dummyId: order.productId,
+                orderedQuantity: order.quantity
+            })
 
             const existenceCheckPromise = Product.find({ _id: productId }).populate('userId');
             products.push(existenceCheckPromise);
@@ -172,18 +178,18 @@ const createOrder = async (req, res, next) => {
         );
 
         const formattedData = extractedData.map((item) => {
-            const { userId, productId, quantity, price } = item;
+            const { userId, productId, price } = item;
             const matchingOrder = orderResult.find((order) => 
                 order.productId.equals(productId)
             );
             const orderId = matchingOrder ? matchingOrder._id : null;
-
+            const order = orderQuantities.find((item) => item.dummyId === productId);
             return {
                 receiptId,// id for locating the sales when orders are cancelled
                 sellerId: userId,
                 productId,
                 orderId: orderId,
-                quantity,
+                quantity: order.orderedQuantity,
                 status: "Pending",
                 price,
                 month: stringMonth,
