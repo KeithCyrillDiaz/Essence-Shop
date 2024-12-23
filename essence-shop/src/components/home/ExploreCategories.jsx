@@ -14,16 +14,16 @@ import {
 } from "../../assets";
 import LazyLoad from "react-lazyload";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 
-const Frame = ({title, src, color}) => {
+const Frame = ({title, src, color, handleClick}) => {
     return (
-        <div className={`frame ${color}`}>
+        <div className={`frame ${color}`} onClick={() => handleClick(title)}>
             <div className="imgContainer">
                 <LazyLoad height={200} offset={100} once>
                     <img src={src} alt=""/>
                 </LazyLoad>
-                
             </div>
             <h4>{title}</h4>
         </div>
@@ -33,11 +33,13 @@ const Frame = ({title, src, color}) => {
 Frame.propTypes = {
     title: assignTypes.title,
     src: assignTypes.string,
-    color: assignTypes.string
+    color: assignTypes.string,
+    handleClick: assignTypes.function
 }
 
-const Categories = () => {
+const ExploreCategories = () => {
 
+    const navigate = useNavigate();
     const seasons = [
         { title: "FALL", img: fall, color: "fallColor"},
         { title: "SPRING" , img: spring, color: "springColor"},
@@ -61,15 +63,32 @@ const Categories = () => {
         slidesToScroll: 1
       };
 
+    const handleClickOnFrame = (title) => {
+        console.log('title: ', title);
+        const capitalizedTitle = title
+        .split(" ") 
+        .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase()) 
+        .join(" "); 
+
+        // const finalTitle = 
+        //     capitalizedTitle === "Fresh & Clean" ? "Fresh" :
+        //     capitalizedTitle === "Sweet & Gourmand" ? "Sweet" :
+        //     capitalizedTitle === "Woody & Earthy" ? "woodyAndEarthy" :
+        //     capitalizedTitle === "Oriental & Spicy" ? "orientalAndSpicy" :
+        //     capitalizedTitle
+        navigate(`/categories/${capitalizedTitle}`);
+        return
+    }   
+
   return (
-    <div className='container categories' >
+    <div className='container exploreCategories' >
         <Divider title="Explore By Categories" id="categories"/>
         <h2>Season of Scents</h2>
         <div className="frameContainer">
             {seasons.map((season, index) => {
                 const {title, img, color} = season;
                 return (
-                    <Frame key={index} title={title} src={img} color={color}/>
+                    <Frame key={index} title={title} src={img} color={color} handleClick={handleClickOnFrame} />
                 )
             })}
         </div>
@@ -80,7 +99,7 @@ const Categories = () => {
                 {scentProfiles.map((season, index) => {
                         const {title, img, color} = season;
                         return (
-                            <Frame key={index} title={title} src={img} color={color}/>
+                            <Frame key={index} title={title} src={img} color={color} handleClick={handleClickOnFrame}/>
                         )
                     })}
             </Slider>
@@ -89,4 +108,4 @@ const Categories = () => {
   )
 }
 
-export default Categories
+export default ExploreCategories

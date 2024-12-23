@@ -21,15 +21,16 @@ const AddItemSection = () => {
         "projection": "Strong",
         "occasion": ["Daytime", "Casual"],
         "bestFor": ["Spring", "Summer"],
+        "scentProfile": ["Fresh & Clean", "Oriental & Spicy"],
         "quantity": 10,
         "imageOf": "DylanBlue"
     })
 
     const [brands, setBrands] = useState([]);
-    const [inventory, setInventory] = useState([]);
+   
 
     const [loading, setLoading] = useState(false);
-    const [isSessionExpired, setIsSessionExpired] = useState(false)
+    const [isSessionExpired, setIsSessionExpired] = useState(false);
 
     const getBrands = () => {
       const designerBrands = designerFragrances.find((item) => item.Brands);
@@ -80,6 +81,7 @@ const AddItemSection = () => {
                     updatedProduct.projection = perfumeDetail.projection;
                     updatedProduct.longevity = perfumeDetail.longevity;
                     updatedProduct.imageOf = fragrance.name;
+                    updatedProduct.scentProfile = perfumeDetail.scentProfile
                   }
                 }
     
@@ -106,6 +108,7 @@ const AddItemSection = () => {
           projection: "",
           occasion: [],
           bestFor: [],
+          scentProfile: [],
           quantity: "",
           imageOf: "",
         });
@@ -133,7 +136,7 @@ const AddItemSection = () => {
               return
             }
 
-
+            window.location.reload();
           
         } catch (error) {
             console.error("Error Adding Item on Inventory", error)
@@ -144,43 +147,9 @@ const AddItemSection = () => {
 
       };
 
-      const fetchProducts = async () => {
-        try {
-            console.log("Fetching Products from Inventory");
-            const token = localStorage.getItem('token');
-
-            const response = await axios.get(
-              backendRoutes.products.getInventoryProducts,
-              {headers: {
-                Authorization: `Bearer ${token}`
-              }}
-            )
-
-            if(response.status === 401){
-              setIsSessionExpired(true);
-              return
-            }
-
-            if(!response.data) {
-              console.log("Error Fetching Products from Inventory")
-              return
-            }
-
-            const {data} = response.data;
-            
-            if(data) setInventory(data);
-            console.log("data: ", JSON.stringify(data, null, 2))
-            
-        } catch (error) {
-          console.error("Error Fetching Invventory", error)
-        } finally {
-          setLoading(false)
-        }
-      }
-
+     
       useEffect(()=> {
         getBrands();
-        fetchProducts();
       },[])
 
       if(loading) {

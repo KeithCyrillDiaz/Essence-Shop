@@ -37,3 +37,19 @@ export const updateWholeCart = (items) => ({
     payload: items
 })
 
+export const setProducts = (items) => ({
+    type: 'SET_PRODUCTS',
+    payload: items
+    
+})
+
+export const addProducts = (items) => ({
+    type: 'ADD_PRODUCTS',
+    payload: items
+})
+
+export const searchProduct = (searchTerm) => ({
+    type: 'SEARCH_PRODUCT',
+    payload: searchTerm
+})
+

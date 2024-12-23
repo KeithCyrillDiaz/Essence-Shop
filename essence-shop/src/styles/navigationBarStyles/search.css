@@ -11,6 +11,12 @@
     padding: 2px 2px;
     border-radius: 4px;
     width: 20%;
+    max-width: 350px;
+    justify-content: space-between;
+}
+
+.navigationBarContainer .searchField form {
+    background-color: pink;
 }
 
 .navigationBarContainer .searchField input {

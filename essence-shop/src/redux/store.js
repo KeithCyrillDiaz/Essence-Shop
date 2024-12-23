@@ -5,18 +5,33 @@ const initialState = {
     cart: [],
     order: [],
     cloudCartCount: 0,
-    localCartCount: 0
+    localCartCount: 0,
+    products: [],
+    filteredProducts: [],
 };
 
 // Reducer to handle actions on the array of objects
 const reducer = (state = initialState, action) => {
     switch(action.type) {
+        case 'SET_PRODUCTS': 
+            return {
+                ...state,
+                products: action.payload,
+                filteredProducts: action.payload,
+            };
         case 'ADD_ITEM':
             return { 
                 ...state, 
                 cart: [...state.cart, action.payload],
                 localCartCount: state.localCartCount + 1
             };
+        case 'SEARCH_PRODUCT': 
+            return{
+                ...state,
+                filteredProducts: state.filteredProducts.filter((item) => 
+                    item.productName.toLowerCase().includes(action.payload.toLowerCase())
+                )
+            }
         
         case 'REMOVE_ITEM':
             return { 
@@ -32,6 +47,12 @@ const reducer = (state = initialState, action) => {
                     item.id === action.payload.id ? { ...item, ...action.payload } : item
                 ) 
             };
+
+        case 'ADD_PRODUCTS': 
+            return {
+                ...state,
+                products: action.payload,
+            }
 
         case 'ADD_ORDER_ITEM': 
             return {

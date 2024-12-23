@@ -3,19 +3,39 @@ import { useState } from 'react';
 import assignTypes from '../constant/PropTypes';
 import { SearchIcon, ShoppingCartIcon } from './icons';
 import { SessionExpired } from '.';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchProduct, setProducts } from '../redux/actions';
 
 
 
-const SearchField = ({onClick, value, onChangeText}) => {
+const SearchField = () => {
+
+    const dispatch = useDispatch();
+    const items = useSelector(state => state.products);
+    const [value, setValue] = useState("")
+    
+    const handleOnClick = () => {
+        dispatch(searchProduct(value))
+    }
+
+    const handleChangeText = (text) => {
+      if(text === ""){
+        dispatch(setProducts(items));
+      }
+      setValue(text);
+    }
+  
   return (
     <div className="searchField">
-      <input
-      placeholder='Search a pefume'
-      type='text'
-      value={value}
-      onChange={onChangeText}
-      />
-      <SearchIcon onClick={onClick}/>
+      <form onSubmit={handleOnClick}>
+        <input
+        placeholder='Search a pefume'
+        type='text'
+        value={value}
+        onChange={(e) => handleChangeText(e.target.value)}
+        />
+      </form>
+      <SearchIcon onClick={handleOnClick}/>
     </div>
   )
 }

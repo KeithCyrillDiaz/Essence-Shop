@@ -1,7 +1,7 @@
 import NavigationBar from "./NavigationBar";
 import Carousel from "./home/Carousel";
 import Divider from "./Divider";
-import Categories from "./home/Categories";
+import ExploreCategories from "./home/ExploreCategories";
 import BestSellers from "./home/BestSellers";
 import ItemCard from "./ItemCard";
 import ExploreScents from "./home/ExploreScents";
@@ -19,10 +19,14 @@ import SessionExpired from "./client/SessionExpired";
 import CartItems from "./client/CartItems";
 import ProtectedRoute from "../pages/client/ProtectedRoute";
 import AddItemSection from "./client/sellNow/AddItemSection";
+import Inventory from "./client/sellNow/Inventory";
+import RenderItems from "./RenderItems";
+
+
 
 export {
     Divider,
-    Categories,
+    ExploreCategories,
     Carousel,
     NavigationBar,
     BestSellers,
@@ -41,5 +45,7 @@ export {
     CartItems,
     SessionExpired,
     ProtectedRoute,
-    AddItemSection
+    AddItemSection,
+    Inventory,
+    RenderItems
 }

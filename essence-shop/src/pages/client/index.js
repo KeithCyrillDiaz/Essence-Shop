@@ -4,6 +4,7 @@ import Register from "./Register";
 import Profile from "./Profile";
 import Cart from "./Cart";
 import SellNow from "./SellNow";
+import Categories from "./Categories";
 
 export {
     Home,
@@ -11,5 +12,6 @@ export {
     Register,
     Profile,
     Cart,
-    SellNow
+    SellNow,
+    Categories
 }

@@ -1,4 +1,4 @@
-import { AboutUs, BestSellers, Carousel, Categories, ExploreScents, Footer, GetInTouch, NavigationBar } from "../../components"
+import { AboutUs, BestSellers, Carousel, ExploreCategories, ExploreScents, Footer, GetInTouch, NavigationBar } from "../../components"
 
 
 
@@ -7,7 +7,7 @@ function Home() {
     <>
       <NavigationBar currentPage={"Home"}/>
       <Carousel/>
-      <Categories/>
+      <ExploreCategories/>
       <BestSellers/>
       <ExploreScents/>
       <AboutUs/>

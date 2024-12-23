@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import {Route, Routes} from 'react-router-dom';
 import { 
   Cart,
+  Categories,
   Home, 
   LogIn, 
   Profile, 
@@ -16,29 +17,29 @@ import { ProtectedRoute } from './components';
 
 
 function App() {
-    const isAuthenticated = Boolean(localStorage.getItem('token'));
-
+  
   return (
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<LogIn/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/categories/:category' element={<Categories/>}/>
 
       {/* protected routes */}
       <Route path='/profile/' element={
-        <ProtectedRoute isAuthenticated={isAuthenticated}>
+        <ProtectedRoute>
           <Profile/>
         </ProtectedRoute>
       }/>
 
       <Route path='/sellNow' element={
-         <ProtectedRoute isAuthenticated={isAuthenticated}>
+         <ProtectedRoute>
           <SellNow/>
         </ProtectedRoute>
       }/>
 
       <Route path='/cart/' element={
-         <ProtectedRoute isAuthenticated={isAuthenticated}>
+         <ProtectedRoute>
             <Cart/>
          </ProtectedRoute>
       }/>

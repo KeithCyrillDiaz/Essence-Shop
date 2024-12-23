@@ -1,12 +1,13 @@
 
-.categories {
+.exploreCategories {
     padding-bottom: 70px;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    color: black;
 }
 
-.categories .frameContainer {
+.exploreCategories .frameContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +15,7 @@
     margin: 0 16px;
 }
 
-.categories .frame {
+.exploreCategories .frame {
     width: 225px;
     padding: 16px;
     height: 200px;
@@ -25,33 +26,33 @@
     font-size: 17px;
 }
 
-.categories .frame:hover {
+.exploreCategories .frame:hover {
     transform: translateY(-1.7%);
 }
 
 
-.categories .frame .imgContainer {
+.exploreCategories .frame .imgContainer {
     overflow: hidden;
     width: 100%;
 }
 
-.categories .frame img {
+.exploreCategories .frame img {
     height: 150px;
     width: auto;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-.categories .frame h4 {
+.exploreCategories .frame h4 {
     text-align: center;
 }
 
 
-.categories .scentProfile {
+.exploreCategories .scentProfile {
     background-color: lightblue;
 
 }
 
-.categories .slick-list {
+.exploreCategories .slick-list {
     padding: 10px 10px;
     margin: 0 100px;
     max-width: 1100px;

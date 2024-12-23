@@ -16,6 +16,8 @@
     justify-content: space-between;
     gap: 4px;
     transition: 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
 }
 
 .itemCard:hover {
@@ -85,4 +87,15 @@
     color: black;
     font-family: Open Sans;
     font-weight: bold;
+}
+
+
+.itemCard .banner {
+    background-color: var(--essence-red);
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    padding: 5px 15px;
+    right: -2%;
+    top: 5%;
 }

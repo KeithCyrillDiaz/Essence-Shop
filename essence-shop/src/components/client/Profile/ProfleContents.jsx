@@ -36,7 +36,7 @@ const MyProfile = ({details, handleChange}) => {
                 return;
             }
 
-            localStorage.removeItem('token');
+            localStorage.clear();
 
             navigate('/');
 

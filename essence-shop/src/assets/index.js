@@ -35,6 +35,19 @@ export {
     userProfile
 }
 
+export const categoriesImages = {
+    fall,
+    spring,
+    summer,
+    winter,
+    floral,
+    fresh,
+    fruity,
+    orientalAndSpicy,
+    sweet,
+    woodyAndEarthy,
+}
+
 
 //Perfumes
 

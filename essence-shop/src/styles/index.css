@@ -11,6 +11,9 @@
 @import url('./historyItemCard.css');
 @import url('./client/cart.css');
 @import url('./client/sellNow/addItemSection.css');
+@import url('./client/sellNow/inventory.css');
+@import url('./categories.css');
+
 
 .container {
     margin: 0 100px;
@@ -61,3 +64,4 @@
     right: 7%;
     position: fixed;
 }
+

@@ -1,0 +1,20 @@
+
+
+.inventory {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.inventory .productsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 8fr); /* 4 columns */
+    gap: 20px;
+}
+
+.inventory h2 {
+    text-align: center;
+    background-color: pink;
+    width: 100%;
+}

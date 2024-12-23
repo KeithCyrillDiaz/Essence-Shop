@@ -6,53 +6,59 @@ import { useEffect, useState } from "react";
 import ItemCard from "../ItemCard";
 import usePagination from "../../hook/usePagination";
 import Pagination from "../Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../../redux/actions";
 
 const ExploreScents = () => {
 
-    const [products, setProducts] = useState([]);
+    const products = useSelector(state => state.filteredProducts);
+    const disptach = useDispatch();
+
     const [loading, setLoading] = useState(true);
 
     const {currentItems, totalPages, handlePageChange, currentPage} = usePagination(products)
 
-    const fetchProducts = async () => {
-        try {
-            console.log("Fetching Products");
-            const token = localStorage.getItem('token');
-            const response = await axios.get(
-                backendRoutes.products.getAllproducts,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-            )
-
-            if(!response.data) {
-                console.error(response.status);
-                return;
-            }
-
-            const {data} = response.data;
-
-            if(!data) {
-                console.log("Data not Found");
-                return;
-            }
-            
-            setProducts(data);
-            console.log("Successfully Fetched Products");
-
-        } catch (error) {
-            console.log("Error Fetching Products");
-            console.error(error);
-        } finally {
-            setLoading(false);
-        }
-    }
-
+  
     useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                console.log("Fetching Products");
+                const token = localStorage.getItem('token');
+                const response = await axios.get(
+                    backendRoutes.products.getAllproducts,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                )
+    
+                if(!response.data) {
+                    console.error(response.status);
+                    return;
+                }
+    
+                const {data} = response.data;
+    
+                if(!data) {
+                    console.log("Data not Found");
+                    return;
+                }
+                
+                disptach(setProducts(data));
+                
+                console.log("Successfully Fetched Products");
+    
+            } catch (error) {
+                console.log("Error Fetching Products");
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+    
         fetchProducts();
-    },[])
+    },[disptach])
 
     if(loading) {
         return (

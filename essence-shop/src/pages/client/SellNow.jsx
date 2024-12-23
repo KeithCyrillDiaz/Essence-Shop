@@ -1,4 +1,4 @@
-import { AddItemSection, NavigationBar } from "../../components"
+import { AddItemSection, Footer, Inventory, NavigationBar } from "../../components"
 
 
 const SellNow = () => {
@@ -7,6 +7,8 @@ const SellNow = () => {
         <div className="space"></div>
         <NavigationBar/>
         <AddItemSection/>
+        <Inventory/>
+        <Footer/>
     </div>
   )
 }
