@@ -1,0 +1,83 @@
+
+.adminLogin  {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--essence-offWhite);
+}
+
+
+
+.adminLogin .form {
+    background-color: #fff;
+    border-radius: 17px;
+    width: 350px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.3);
+}
+.adminLogin .form form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.adminLogin .form button{
+    width: 100%;
+}
+
+.adminLogin input {
+    height: 30px;
+}
+
+.adminLogin .form .passwordContainer .icon {
+    height: 24px;
+}
+
+.adminLogin .passwordContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--essence-gold);
+    padding-right: 12px;
+    justify-content: space-between;
+}
+
+.adminLogin .passwordContainer input {
+    border:none
+}
+
+.adminLogin form a {
+    text-decoration: none;
+    color: var(--essence-red);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.adminLogin form a,
+.adminLogin .form p,
+.adminLogin form h2 {
+    text-align: center;
+}
+
+.adminLogin form h2 {
+    color: var(--essence-red);
+}
+
+.adminLogin form span,
+.adminLogin .form p
+ {
+    color: var(--essence-gold);
+}
+
+
+.adminLogin .divider {
+    margin: 0;
+}
+
+.adminLogin .form .reg {
+    background-color: var(--essence-red);
+}

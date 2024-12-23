@@ -9,7 +9,7 @@ import backendRoutes from "../../routes/backendROutes";
 import { updateWholeCart, updateQuantity, removeItem } from "../../redux/actions";
 import PropTypes from "prop-types";
 import { Perfumes } from "../../assets";
-import { SessionExpired } from "..";
+import { Modal, SessionExpired } from "..";
 
 const CartTab = () => {
 
@@ -273,9 +273,30 @@ const CartItems = () => {
         updateCart();
     },[])
 
+    const [modalDetails, setModalDetails] = useState({
+      message: '',
+      visible: false
+    });
 
     const handleCheckout = async () => {
       try {
+        
+          if(cart.length === 0) {
+            setModalDetails({
+              message: 'No items in Cart',
+              visible: true
+            })
+            return
+          }
+
+          if(address === '' || !address) {
+            setModalDetails({
+              message: 'Please input your address first',
+              visible: true
+            })
+            return
+          }
+
           setLoading(true);
           console.log("Checking Out");
           const token = localStorage.getItem('token');
@@ -328,7 +349,84 @@ const CartItems = () => {
         setLoading(false)
       }
     }
-  
+    
+
+    const [address, setAddress] = useState('');
+    const [editAddress, setEditAddress] = useState(false);
+
+    const handleSaveAddress = async () => {
+      try {
+          console.log("Updating Address");
+          setLoading(true);
+
+          const token = localStorage.getItem('token');
+
+          const response = await axios.patch(
+            backendRoutes.user.updateAddress,
+            {address},
+            {headers: {
+              Authorization: `Bearer ${token}`
+            }}
+          )
+
+          if(response.status === 401) {
+            setIsSessionExpired(true);
+            return;
+          }
+
+          if(!response.data) {
+            console.log("Failed Fetching Data");
+            return;
+          }
+
+          setAddress(response.data.address);
+
+      } catch (error) {
+        console.error("Error Updating Address", error)
+      } finally {          
+        setEditAddress(false);
+        setLoading(false)
+      }
+    }
+
+  const getUserData = async () => {
+    try {
+        console.log("Fetching User Details");
+        setLoading(true);
+
+        const token = localStorage.getItem('token');
+
+        const response = await axios.get(
+          backendRoutes.user.getUserDetails,
+          {headers: {
+            Authorization: `Bearer ${token}`
+          }}
+        )
+
+        if(response.status === 401) {
+          setIsSessionExpired(true);
+          return
+        }
+
+        if(!response.data) {
+          console.log("Failed Fetching Data");
+          return;
+        }
+
+        const {data} = response.data;
+
+        setAddress(data.address);
+
+    } catch (error) {
+      console.error("Error Fetching Data", error)
+    } finally {          
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getUserData();
+  },[])
 
   if(loading) {
     return (
@@ -340,6 +438,14 @@ const CartItems = () => {
   return (
     <div className="container cart">
         {isSessionExpired && <SessionExpired/>}
+        {modalDetails.visible && 
+          <Modal 
+            message={modalDetails.message} 
+            onClose={() => setModalDetails((prev) => ({
+              ...prev,
+              visible: false
+            }))}/>
+          }
         <Divider title="Cart"/>
         <CartTab/>
         <div className="cartContainer">
@@ -359,6 +465,28 @@ const CartItems = () => {
               ))
             )}
         </div>
+        <div className="address">
+            <div className="details">
+              <p><strong>Complete Address: </strong></p>
+              <input 
+              type="text" 
+              value={address ?? 'Addres not set'}
+              disabled={!editAddress}
+              onChange={(e) => setAddress(e.target.value)}
+              className={`${editAddress ? '': 'offBorder'}`}
+              />
+            </div>
+            <div className="action">
+            {editAddress ? (
+              <>
+                <button className="secondary" onClick={() => setEditAddress(false)}>Cancel</button>
+                <button onClick={handleSaveAddress}>Save</button>
+              </>
+            ) : (
+              <button onClick={() => setEditAddress(true)}>Edit</button>
+            )}
+            </div>
+        </div>
         <div className="bottomTab">
           <div className="total">
             <h2>Total</h2>
@@ -374,7 +502,7 @@ const CartItems = () => {
                 <p><strong>₱ {totalAmount}</strong></p>
               </div>
             </div>
-            <button onClick={handleCheckout}>CHECKOUT</button>
+            <button onClick={handleCheckout}>PLACE ORDER</button>
           </div>
         </div>
     </div>

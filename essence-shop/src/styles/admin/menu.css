@@ -1,0 +1,31 @@
+
+.menu {
+    background-color: var(--essence-red);
+    height: 100%;
+    position: fixed;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+
+.menu p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.menu .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 50px;
+}
+
+.menu .row:hover {
+    cursor: pointer;    
+}
+
+.menu .highlight {
+    color: var(--essence-gold);
+}

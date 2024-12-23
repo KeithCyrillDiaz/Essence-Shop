@@ -17,10 +17,13 @@ import FormTable from "./FormTable";
 import Loader from "./Loader";
 import SessionExpired from "./client/SessionExpired";
 import CartItems from "./client/CartItems";
-import ProtectedRoute from "../pages/client/ProtectedRoute";
 import AddItemSection from "./client/sellNow/AddItemSection";
 import Inventory from "./client/sellNow/Inventory";
 import RenderItems from "./RenderItems";
+import Menu from "./admin/Menu";
+import AdminNavBar from "./admin/AdminNavBar";
+import AdminProtectedRoute from "./admin/AdminProtectedRoute";
+import ProtectedRoute from "./client/ProtectedRoute";
 
 
 
@@ -44,8 +47,13 @@ export {
     Loader,
     CartItems,
     SessionExpired,
-    ProtectedRoute,
     AddItemSection,
     Inventory,
-    RenderItems
+    RenderItems,
+    Menu,
+    AdminNavBar,
+
+
+    ProtectedRoute,
+    AdminProtectedRoute
 }

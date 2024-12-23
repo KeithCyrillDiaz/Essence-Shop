@@ -13,6 +13,7 @@
 @import url('./client/sellNow/addItemSection.css');
 @import url('./client/sellNow/inventory.css');
 @import url('./categories.css');
+@import url('./admin/admin.css');
 
 
 .container {

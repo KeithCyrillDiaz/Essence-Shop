@@ -98,7 +98,7 @@ const HistoryItemCard = ({item, selected, formTitle}) => {
             </div>
             <div className="right">
                 <div>
-                    <p>Amount: ₱ <strong>{price}</strong></p>
+                    <p>Amount: ₱ <strong>{price * quantity}</strong></p>
                     <p>Quantity: <strong>{quantity}</strong></p>
                 </div>
                {selected === "Completed" && formTitle === 'order' && (

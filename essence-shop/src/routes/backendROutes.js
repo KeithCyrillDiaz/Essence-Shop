@@ -8,6 +8,7 @@ const backendRoutes = {
         login: `${BASED_URL}/login`,
         updateStatus: `${BASED_URL}/user/updateStatus`,
         getUserDetails: `${BASED_URL}/user/getUserProfile`,
+        updateAddress: `${BASED_URL}/user/updateAddress`
     },
     products: {
         getInventoryProducts: `${BASED_URL}/user/products/get`,
@@ -17,7 +18,10 @@ const backendRoutes = {
     },
 
     admin: {
-        userCount: `${BASED_URL}/count/user`
+        userCount: `${BASED_URL}/count/user`,
+        login: `${BASED_URL}/admin/login`,
+        getTotals: `${BASED_URL}/admin/total/get`,
+        getUsers: `${BASED_URL}/admin/users/get`
     },
     sales: {
         getSalesHistory: `${BASED_URL}/user/sales/get`,

@@ -1,0 +1,38 @@
+
+
+.users table {
+    color: black;
+    font-size: 12px;
+}
+
+
+
+.users thead {
+    background-color: white;
+    color: gray;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.3);
+}
+
+.users table {
+    background-color: var(--essence-offWhite);
+    width: 100%;
+    margin-top: 50px;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.3);
+}
+
+.users table tr {
+    height: 40px;
+    text-align: center;
+}
+
+
+.users table .actions {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 8px;
+}
+
+.users table button {
+    padding: 5px 20px;
+}

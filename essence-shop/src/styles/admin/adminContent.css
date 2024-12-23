@@ -1,0 +1,11 @@
+
+
+.adminContent h2 {
+    color: var(--essence-gold);
+    font-weight: bold;
+}
+
+.adminContent .mainContent {
+    margin-left: 15%;
+    padding: 10px 20px
+}

@@ -1,0 +1,20 @@
+
+
+.adminNavBar {
+    background-color: var(--essence-red);
+    height: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 70px;
+    font-family: Lora;
+}
+
+.adminNavBar button {
+    background-color: #fff;
+    border-radius: 20px;
+    color: var(--essence-red);
+    font-weight: bold;
+    font-family: Oswald;
+}
